@@ -23,8 +23,6 @@ public class CodeSmells {
 		try {
 			Workbook workbook = new XSSFWorkbook();
 			
-			
-			
 			Sheet sh = workbook.createSheet("Invoices");
 
 			String[] collumHeadings = { "Item id", "Item Name", "Qty", "Item Price", "Sold Date" };
