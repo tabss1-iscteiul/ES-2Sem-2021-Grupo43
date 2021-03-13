@@ -17,7 +17,7 @@ public class CodeSmells {
 	private String path;
 	
 	public CodeSmells() throws IOException{
-		this.path = "C:/Users/TOSHIBA/Documents/codesmells/Code_Smells.xlsx" ;
+		this.path = "./excellcodesmells/Code_Smells.xlsx" ;
 		this.file = new File(path);
 		readExcell();
 	}
