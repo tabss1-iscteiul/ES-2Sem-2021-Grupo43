@@ -1,73 +1,57 @@
 package Codesmells.projetocodesemells;
 
-import java.io.FileOutputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Iterator;
 
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.CreationHelper;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class CodeSmells {
-
-	public void writeExcell() {
-
-		try {
-			Workbook workbook = new XSSFWorkbook();
+	
+	private File file;
+	private String path;
+	
+	public CodeSmells() throws IOException{
+		this.path = "C:/Users/TOSHIBA/Documents/codesmells/Code_Smells.xlsx" ;
+		this.file = new File(path);
+		readExcell();
+	}
+	
+	
+	public void readExcell() throws IOException {
+		
+		FileInputStream input = new FileInputStream(file);
+		
+		XSSFWorkbook workbook = new XSSFWorkbook(input);
+		
+		XSSFSheet sheet = workbook.getSheetAt(0);
+		
+		Iterator<Row> rowIt = sheet.iterator();
+		
+		while(rowIt.hasNext()) {
+			Row row = rowIt.next();
 			
-			Sheet sh = workbook.createSheet("Invoices");
-
-			String[] collumHeadings = { "Item id", "Item Name", "Qty", "Item Price", "Sold Date" };
-
-			Font headerFont = workbook.createFont();
-			headerFont.setBold(true);
-			headerFont.setFontHeightInPoints((short) 12);
-			headerFont.setColor(IndexedColors.BLACK.index);
-
-			CellStyle headerStyle = workbook.createCellStyle();
-			headerStyle.setFont(headerFont);
-			headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-			headerStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.index);
-
-			Row headerRow = sh.createRow(0);
-
-			for (int i = 0; i < collumHeadings.length; i++) {
-				Cell cell = headerRow.createCell(i);
-				cell.setCellValue(collumHeadings[i]);
-				cell.setCellStyle(headerStyle);
+			
+			Iterator<Cell> cellIterator = row.cellIterator();
+			
+			while(cellIterator.hasNext()) {
+				Cell cell = cellIterator.next();
+				System.out.print(cell.toString()+ " ; ");
 			}
-
-
-
-			for (int i = 0; i < collumHeadings.length; i++) {
-				sh.autoSizeColumn(i);
-			}
-			Sheet sh2 = workbook.createSheet("Second");
-
-			FileOutputStream fileOut = new FileOutputStream("C:\\Users\\TOSHIBA\\Documents\\teste\\invoices.xls");
-			workbook.write(fileOut);
-			fileOut.close();
-			workbook.close();
-			System.out.println("Completed");
-
-		} catch (Exception e) {
-
+			System.out.println();
 		}
-
+		workbook.close();
+		input.close();
+		
 	}
-
 	
 	
-	
-	public static void main(String[] args) {
-		new CodeSmells().writeExcell();
-	}
+    public static void main( String[] args )throws IOException{
+       new CodeSmells();
+    }
 }
