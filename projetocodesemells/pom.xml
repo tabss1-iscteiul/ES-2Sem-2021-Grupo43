@@ -20,6 +20,19 @@
   </properties>
 
   <dependencies>
+  <!-- https://mvnrepository.com/artifact/com.github.javaparser/javaparser-core -->
+<dependency>
+    <groupId>com.github.javaparser</groupId>
+    <artifactId>javaparser-core</artifactId>
+    <version>3.20.0</version>
+</dependency>
+  <!-- https://mvnrepository.com/artifact/io.dropwizard.metrics/metrics-core -->
+<dependency>
+    <groupId>io.dropwizard.metrics</groupId>
+    <artifactId>metrics-core</artifactId>
+    <version>4.1.18</version>
+</dependency>
+  
      <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 <dependency>
     <groupId>org.apache.poi</groupId>
