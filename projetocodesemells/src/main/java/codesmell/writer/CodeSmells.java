@@ -1,4 +1,4 @@
-package Codesmells.projetocodesemells;
+package codesmell.writer;
 
 import java.io.FileOutputStream;
 import java.text.ParseException;
