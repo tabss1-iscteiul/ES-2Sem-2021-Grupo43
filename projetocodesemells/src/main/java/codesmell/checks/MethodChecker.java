@@ -16,5 +16,9 @@ public class MethodChecker implements IChecker {
 		});*/
 		return new ReportEntry(CHECKER_NAME, String.valueOf(result));
 	}
+	
+	public String getMethodName() {
+		return CHECKER_NAME;
+	}
 
 }

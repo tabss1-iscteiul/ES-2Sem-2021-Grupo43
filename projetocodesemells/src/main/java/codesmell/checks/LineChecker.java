@@ -9,4 +9,7 @@ public class LineChecker implements IChecker {
 		int result = compilationUnit.toString().split("\n").length;
 		return new ReportEntry(CHECKER_NAME, String.valueOf(result));
 	}
+	public String getLineName() {
+		return CHECKER_NAME;
+	}
 }
