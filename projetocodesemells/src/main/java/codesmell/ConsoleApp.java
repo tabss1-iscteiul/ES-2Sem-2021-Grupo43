@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import codesmell.checks.CycloChecker;
+import codesmell.checks.CycloMethodChecker;
 import codesmell.checks.IChecker;
 import codesmell.checks.LineChecker;
 import codesmell.checks.MethodChecker;
@@ -21,7 +22,9 @@ public class ConsoleApp {
 		// Setup components
 		Collection<IChecker> checkers = Arrays.asList( 
 			new LineChecker(), 
-			new MethodChecker(), new CycloChecker());
+			new MethodChecker(), 
+			new CycloChecker(), 
+			new CycloMethodChecker());
 		IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
 		IWriter writer = new ConsoleWriter();
 		

@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import codesmell.checks.IChecker;
+import codesmell.report.IReportEntry;
 import codesmell.report.Report;
 import codesmell.report.ReportEntry;
 
@@ -39,7 +40,7 @@ public class ASTReader implements IReader {
 			System.out.printf("Processing: %s\n", javaFile.toString());
 			CompilationUnit compilationUnit = StaticJavaParser.parse(javaFile);
 			for (IChecker checker : checkers) {
-				ReportEntry reportEntry = checker.check(compilationUnit);
+				IReportEntry<?> reportEntry = checker.check(compilationUnit);
 				report.addReportEntry(javaFile.toString(), reportEntry);
 			}
 		}

@@ -4,6 +4,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.stmt.Statement;
+import com.github.javaparser.ast.stmt.SwitchStmt;
 
 import codesmell.report.ReportEntry;
 
@@ -24,7 +25,7 @@ public class CycloChecker implements IChecker{
 					counter ++;
 				}
 				if (statement.isSwitchStmt()) {
-					counter ++;
+					counter += statement.asSwitchStmt().getEntries().size();
 				}
 		});
 		
@@ -34,4 +35,5 @@ public class CycloChecker implements IChecker{
 		return CHECKER_NAME;
 	}
 
+	
 }
