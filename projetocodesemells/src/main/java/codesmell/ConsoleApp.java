@@ -9,6 +9,7 @@ import codesmell.checks.CycloChecker;
 import codesmell.checks.CycloMethodChecker;
 import codesmell.checks.IChecker;
 import codesmell.checks.LineChecker;
+import codesmell.checks.LineMethodChecker;
 import codesmell.checks.MethodChecker;
 import codesmell.reader.ASTReader;
 import codesmell.reader.IReader;
@@ -24,7 +25,8 @@ public class ConsoleApp {
 			new LineChecker(), 
 			new MethodChecker(), 
 			new CycloChecker(), 
-			new CycloMethodChecker());
+			new CycloMethodChecker(),
+			new LineMethodChecker());
 		IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
 		IWriter writer = new ConsoleWriter();
 		
