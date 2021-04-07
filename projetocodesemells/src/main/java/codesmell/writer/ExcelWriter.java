@@ -63,7 +63,9 @@ public class ExcelWriter implements IWriter {
 			FileOutputStream fileOut = new FileOutputStream("C:\\Users\\TOSHIBA\\Documents\\teste\\Code_Smells.xls");
 			
 			workbook.write(fileOut);
+			
 			fileOut.close();
+			
 			workbook.close();
 			
 		} catch (Exception ex) {
