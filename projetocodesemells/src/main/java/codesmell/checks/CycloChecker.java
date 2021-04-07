@@ -6,7 +6,11 @@ import codesmell.report.ReportEntry;
 
 
 public class CycloChecker implements IChecker {
+<<<<<<< HEAD
 	
+=======
+	//Métodos ciclomáticos
+>>>>>>> branch 'master' of https://github.com/tabss1-iscteiul/ES-2Sem-2021-Grupo43
 	private static final String CHECKER_NAME = "CycloChecker";
 	//private int counter = 0;
 
