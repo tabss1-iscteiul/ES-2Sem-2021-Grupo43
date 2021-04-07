@@ -35,12 +35,12 @@ public class Excel {
 		
 		int rowNum = 1;
 		
-		for (Col rows : rows) {
+	/*	for (Col rows : rows) {
 			Row row = sheet.createRow(rowNum);
 			row.createCell(0).setCellValue(row.MethodID);
 			
 		
-		}
+		}*/
 		
 	}
 		
