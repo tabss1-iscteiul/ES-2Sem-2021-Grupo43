@@ -16,7 +16,7 @@ import codesmell.reader.IReader;
 import codesmell.report.Report;
 import codesmell.writer.ConsoleWriter;
 import codesmell.writer.IWriter;
-
+// Método para testar as características gerais do projeto
 public class ConsoleApp {
 
 	public static void main(String[] args) throws IOException {
