@@ -2,8 +2,9 @@ package codesmell.checks;
 
 import com.github.javaparser.ast.CompilationUnit;
 
-import codesmell.report.ReportEntry;
+import codesmell.report.IReportEntry;
 
 public interface IChecker {
-	ReportEntry check(CompilationUnit compilationUnit);
+	IReportEntry<?> check(CompilationUnit compilationUnit);
+	
 }

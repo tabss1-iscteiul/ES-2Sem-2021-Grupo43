@@ -1,6 +1,6 @@
 package codesmell.report;
 
-public class ReportEntry {
+public class ReportEntry implements IReportEntry<String>{
 	private String checkerName;
 	private String checkerValue;
 	
@@ -15,6 +15,11 @@ public class ReportEntry {
 	public String getCheckerValue() {
 		return checkerValue;
 	}
+	@Override
+	public boolean isMultiEntry() {
+		return false;
+	}
 	
 
+	
 }

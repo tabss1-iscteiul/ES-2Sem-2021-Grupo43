@@ -36,6 +36,8 @@ public class ExcelWriter implements IWriter {
 			
 			int index = 1;
 			HSSFRow row = sheet.createRow((short) index);
+			
+			
 		/*	
 			 Row row = null;
 		        while (rs.next()) {

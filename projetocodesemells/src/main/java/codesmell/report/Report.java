@@ -7,15 +7,15 @@ import java.util.Map;
 
 public class Report {
 
-	private final Map<String, List<ReportEntry>> reportMap = new HashMap<>();
+	private final Map<String, List<IReportEntry<?>>> reportMap = new HashMap<>();
 	
-	public void addReportEntry(String key, ReportEntry entry) {
-		List<ReportEntry> values = reportMap.getOrDefault(key, new ArrayList<>());
+	public void addReportEntry(String key, IReportEntry<?> entry) {
+		List<IReportEntry<?>> values = reportMap.getOrDefault(key, new ArrayList<>());
 		values.add(entry);
 		reportMap.put(key, values);
 	}
 	
-	public Map<String, List<ReportEntry>> getReport(){
+	public Map<String, List<IReportEntry<?>>> getReport(){
 		return reportMap;
 	}
 }
