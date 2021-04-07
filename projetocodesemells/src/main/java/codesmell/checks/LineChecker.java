@@ -5,7 +5,7 @@ import codesmell.report.ReportEntry;
 
 public class LineChecker implements IChecker {
 	
-	// número de linhas de código
+	//número de linhas de código 
 	private static final String CHECKER_NAME = "LineChecker";
 	
 	public ReportEntry check(CompilationUnit compilationUnit) {
