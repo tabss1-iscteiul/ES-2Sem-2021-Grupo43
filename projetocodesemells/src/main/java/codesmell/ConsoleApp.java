@@ -16,10 +16,12 @@ import codesmell.reader.IReader;
 import codesmell.report.Report;
 import codesmell.writer.ConsoleWriter;
 import codesmell.writer.IWriter;
-// Método para testar as características gerais do projeto
+
+// Mï¿½todo para testar as caracterï¿½sticas gerais do projeto
 public class ConsoleApp {
 
 	public static void main(String[] args) throws IOException {
+		
 		// Setup components
 		Collection<IChecker> checkers = Arrays.asList( 
 			new LineChecker(), 

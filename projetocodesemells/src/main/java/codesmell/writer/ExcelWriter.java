@@ -20,8 +20,11 @@ public class ExcelWriter implements IWriter {
 	@Override
 	public void write(Report report) {
 		try {
+			
+			// Lista linhas
 			List<Row> listRows = new ArrayList<Row>();
 
+			// Lê e escreve ficheiros excel
 			HSSFWorkbook workbook = new HSSFWorkbook();
 
 			// Nome da página do excell
@@ -58,9 +61,11 @@ public class ExcelWriter implements IWriter {
 		          */  
 			
 			FileOutputStream fileOut = new FileOutputStream("C:\\Users\\TOSHIBA\\Documents\\teste\\Code_Smells.xls");
+			
 			workbook.write(fileOut);
 			fileOut.close();
 			workbook.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}

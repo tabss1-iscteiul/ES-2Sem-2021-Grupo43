@@ -6,6 +6,7 @@ import codesmell.report.ReportEntry;
 
 
 public class CycloChecker implements IChecker {
+	
 	private static final String CHECKER_NAME = "CycloChecker";
 	//private int counter = 0;
 
@@ -20,6 +21,7 @@ public class CycloChecker implements IChecker {
 				return statement.asSwitchStmt().getEntries().size();
 			}
 			return 0;
+		
 		}).sum();
 
 		return new ReportEntry(CHECKER_NAME, String.valueOf(counter + 1));
