@@ -24,7 +24,8 @@ public class LineMethodChecker implements IChecker {
 
 		int counter = method.findAll(Comment.class).stream().mapToInt(comment ->{
 				
-				if (comment.isLineComment() || comment.isBlockComment()) {
+				if (comment.isLineComment() || comment.isBlockComment() || comment.isJavadocComment() ||
+						comment.isOrphan()) {
 					return 1;
 				}else {
 					return 0;
