@@ -8,11 +8,9 @@ import com.github.javaparser.ast.stmt.Statement;
 import codesmell.report.ReportMultipleEntry;
 
 public class CycloMethodChecker implements IChecker {
-<<<<<<< HEAD
-	
-=======
+
 	//Métodos Ciclomáticos
->>>>>>> branch 'master' of https://github.com/tabss1-iscteiul/ES-2Sem-2021-Grupo43
+
 	private static final String CHECKER_NAME = "CycloMethodChecker";
 
 	public ReportMultipleEntry check(CompilationUnit compilationUnit) {
