@@ -1,6 +1,5 @@
 package codesmell.checks;
 
-
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.stmt.Statement;
@@ -8,16 +7,17 @@ import com.github.javaparser.ast.stmt.Statement;
 import codesmell.report.ReportMultipleEntry;
 
 public class CycloMethodChecker implements IChecker {
-private static final String CHECKER_NAME = "CycloMethodChecker";
+	private static final String CHECKER_NAME = "CYCLO_method";
+	private int counter = 0;
 
 	public ReportMultipleEntry check(CompilationUnit compilationUnit) {
-		
+
 		ReportMultipleEntry en = new ReportMultipleEntry(CHECKER_NAME);
 		compilationUnit.findAll(MethodDeclaration.class).forEach(method -> {
-		
+
 			String methodName = method.getNameAsString();
-			int counter = method.findAll(Statement.class).stream().mapToInt(statement -> {
-			
+			counter = method.findAll(Statement.class).stream().mapToInt(statement -> {
+
 				if (statement.isIfStmt() || statement.isWhileStmt() || statement.isForStmt()
 						|| statement.isForEachStmt() || statement.isDoStmt()) {
 					return 1;
@@ -31,6 +31,14 @@ private static final String CHECKER_NAME = "CycloMethodChecker";
 		});
 
 		return en;
+	}
+
+	public String getCycloMethodChecker() {
+		return CHECKER_NAME;
+	}
+
+	public int getMethodClassCounter() {
+		return counter;
 	}
 
 }
