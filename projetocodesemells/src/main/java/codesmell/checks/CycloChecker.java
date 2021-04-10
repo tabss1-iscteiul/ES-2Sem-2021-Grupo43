@@ -6,11 +6,10 @@ import codesmell.report.ReportEntry;
 
 public class CycloChecker implements IChecker {
 	private static final String CHECKER_NAME = "WMC_class";
-	private int counter = 0;
 
 	@Override
 	public ReportEntry check(CompilationUnit compilationUnit) {
-		counter = compilationUnit.findAll(Statement.class).stream().mapToInt(statement -> {
+		int counter = compilationUnit.findAll(Statement.class).stream().mapToInt(statement -> {
 			if (statement.isIfStmt() || statement.isWhileStmt() || statement.isForStmt() || statement.isForEachStmt()
 					|| statement.isDoStmt()) {
 				return 1;
@@ -24,13 +23,8 @@ public class CycloChecker implements IChecker {
 
 		return new ReportEntry(CHECKER_NAME, String.valueOf(counter + 1));
 	}
-	
-	public String getNameCycloCheker() {
+
+	public String getCheckerName() {
 		return CHECKER_NAME;
 	}
-	
-	public int getClassCycloCounter() {
-		return counter;
-	}
-
 }

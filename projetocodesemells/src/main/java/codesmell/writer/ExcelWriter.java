@@ -42,8 +42,6 @@ public class ExcelWriter implements IWriter {
 
 			// células da primeira linha
 			
-			rowhead.createCell(0).setCellValue(numMethods.getMethodName());
-			rowhead.createCell(1).setCellValue(lineChecker.getLineName());
 			
 			int index = 1;
 			HSSFRow row = sheet.createRow((short) index);

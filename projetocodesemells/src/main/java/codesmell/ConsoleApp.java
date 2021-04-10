@@ -5,12 +5,10 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
-import codesmell.checks.CycloChecker;
-import codesmell.checks.CycloMethodChecker;
+import codesmell.checks.GodClassChecker;
 import codesmell.checks.IChecker;
 import codesmell.checks.LineChecker;
-import codesmell.checks.LineMethodChecker;
-import codesmell.checks.MethodChecker;
+import codesmell.checks.LongMethodChecker;
 import codesmell.reader.ASTReader;
 import codesmell.reader.IReader;
 import codesmell.report.Report;
@@ -23,10 +21,8 @@ public class ConsoleApp {
 		
 		Collection<IChecker> checkers = Arrays.asList( 
 			new LineChecker(), 
-			new MethodChecker(), 
-			new CycloChecker(), 
-			new CycloMethodChecker(),
-			new LineMethodChecker());
+			new LongMethodChecker(), 
+			new GodClassChecker());
 		IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
 		IWriter writer = new ConsoleWriter();
 		
