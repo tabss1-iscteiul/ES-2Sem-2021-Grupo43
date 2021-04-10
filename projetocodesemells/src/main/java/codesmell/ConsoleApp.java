@@ -17,12 +17,10 @@ import codesmell.report.Report;
 import codesmell.writer.ConsoleWriter;
 import codesmell.writer.IWriter;
 
-// M�todo para testar as caracter�sticas gerais do projeto
 public class ConsoleApp {
 
 	public static void main(String[] args) throws IOException {
 		
-		// Setup components
 		Collection<IChecker> checkers = Arrays.asList( 
 			new LineChecker(), 
 			new MethodChecker(), 
@@ -32,7 +30,6 @@ public class ConsoleApp {
 		IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
 		IWriter writer = new ConsoleWriter();
 		
-		// Running main code
 		Report report = reader.runCheckers(checkers);
 		writer.write(report);
 	}
