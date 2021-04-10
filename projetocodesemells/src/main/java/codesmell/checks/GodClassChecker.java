@@ -15,7 +15,7 @@ public class GodClassChecker implements IChecker {
 	private CycloChecker cycloChecker = new CycloChecker();
 	private MethodChecker methodChecker = new MethodChecker();
 
-	private static final String CHECKER_NAME = "Long_Method";
+	private static final String CHECKER_NAME = "God_class";
 	
 	
 	public GodClassChecker() {
