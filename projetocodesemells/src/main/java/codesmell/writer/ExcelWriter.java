@@ -9,13 +9,20 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 
+import codesmell.checks.CycloChecker;
+import codesmell.checks.CycloMethodChecker;
 import codesmell.checks.LineChecker;
+import codesmell.checks.LineMethodChecker;
 import codesmell.checks.MethodChecker;
 import codesmell.report.Report;
 
 public class ExcelWriter implements IWriter {
-	private LineChecker line;
-	private MethodChecker method;
+	private CycloChecker cycloClass;
+	private CycloMethodChecker cycloMethod;
+	private LineChecker lineChecker;
+	private LineMethodChecker lineMethodChecker;
+	private MethodChecker numMethods;
+	
 
 	@Override
 	public void write(Report report) {
@@ -34,8 +41,9 @@ public class ExcelWriter implements IWriter {
 			HSSFRow rowhead = sheet.createRow((short) 0);
 
 			// células da primeira linha
-			rowhead.createCell(0).setCellValue(line.getLineName());
-			rowhead.createCell(1).setCellValue(method.getMethodName());
+			
+			rowhead.createCell(0).setCellValue(numMethods.getMethodName());
+			rowhead.createCell(1).setCellValue(lineChecker.getLineName());
 			
 			int index = 1;
 			HSSFRow row = sheet.createRow((short) index);
