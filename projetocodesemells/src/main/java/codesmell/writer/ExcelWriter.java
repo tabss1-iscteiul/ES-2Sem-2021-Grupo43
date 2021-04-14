@@ -37,9 +37,20 @@ public class ExcelWriter implements IWriter {
 			// Nome da página do excell
 			HSSFSheet sheet = workbook.createSheet("Code Smells");
 
-			// primeira linha
-			HSSFRow rowhead = sheet.createRow((short) 0);
-
+			// primeira linha EXEMPLOOOOO
+			HSSFRow firstLine = sheet.createRow((short)0);
+			firstLine.createCell(0).setCellValue("MethodID");
+			firstLine.createCell(1).setCellValue("method");
+			firstLine.createCell(2).setCellValue("NOM_class");
+			firstLine.createCell(3).setCellValue("LOC_class");
+			firstLine.createCell(4).setCellValue("WMC_class");
+			firstLine.createCell(5).setCellValue("is_God_Class");
+			firstLine.createCell(6).setCellValue("CYCLO_method");
+			firstLine.createCell(7).setCellValue("is_Long_Method");
+			
+			
+			
+			
 			// células da primeira linha
 			
 			
