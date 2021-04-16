@@ -13,6 +13,7 @@ public class CycloMethodChecker implements IChecker {
 
 	private static final String CHECKER_NAME = "CycloMethodChecker";
 
+
 	public ReportMultipleEntry check(CompilationUnit compilationUnit) {
 		
 		ReportMultipleEntry en = new ReportMultipleEntry(CHECKER_NAME);

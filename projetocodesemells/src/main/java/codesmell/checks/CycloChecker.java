@@ -7,12 +7,14 @@ import codesmell.report.ReportEntry;
 
 public class CycloChecker implements IChecker {
 
+
 	
 
 	//Métodos ciclomáticos
 
 	private static final String CHECKER_NAME = "CycloChecker";
-	//private int counter = 0;
+
+
 
 	@Override
 	public ReportEntry check(CompilationUnit compilationUnit) {
