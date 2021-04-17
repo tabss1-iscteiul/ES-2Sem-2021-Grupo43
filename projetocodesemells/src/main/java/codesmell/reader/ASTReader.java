@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
@@ -39,9 +40,12 @@ public class ASTReader implements IReader {
 		for (File javaFile : javaFiles) {
 			System.out.printf("Processing: %s\n", javaFile.toString());
 			CompilationUnit compilationUnit = StaticJavaParser.parse(javaFile);
-			for (IChecker checker : checkers) {
-				IReportEntry<?> reportEntry = checker.check(compilationUnit);
-				report.addReportEntry(javaFile.toString(), reportEntry);
+			String packageName = compilationUnit.getPackageDeclaration().map(p -> p.getNameAsString()).orElse("");
+			String className = javaFile.getName().replaceAll(".java", "");
+			Report.ReportID reportID = new Report.ReportID(packageName, className);
+
+			for( IChecker checker : checkers ) {
+				report.addReportEntries(reportID, checker.check(compilationUnit));		
 			}
 		}
 		return report;

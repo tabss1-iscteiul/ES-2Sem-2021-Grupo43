@@ -13,8 +13,8 @@ import codesmell.reader.ASTReader;
 import codesmell.reader.IReader;
 import codesmell.report.Report;
 import codesmell.writer.ConsoleWriter;
+import codesmell.writer.ExcelWriter;
 import codesmell.writer.IWriter;
-
 public class ConsoleApp {
 
 	public static void main(String[] args) throws IOException {
@@ -24,10 +24,12 @@ public class ConsoleApp {
 			new LongMethodChecker(), 
 			new GodClassChecker());
 		IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
-		IWriter writer = new ConsoleWriter();
-		
+		IWriter cwriter = new ConsoleWriter();
+		IWriter writer = new ExcelWriter();
+
 		Report report = reader.runCheckers(checkers);
 		writer.write(report);
+		cwriter.write(report);
 	}
 
 }
