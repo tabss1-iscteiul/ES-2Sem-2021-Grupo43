@@ -9,15 +9,11 @@ public class MethodChecker implements IChecker {
 
 	public ReportEntry check(CompilationUnit compilationUnit) {
 		int result = compilationUnit.findAll(MethodDeclaration.class).size();
-
-		/*compilationUnit.findAll(MethodDeclaration.class).forEach( m -> {
-			
-			System.out.println("Method " + m.getNameAsString() + "    Lines " + (m.toString().split("\n").length));
-		});*/
 		return new ReportEntry(CHECKER_NAME, String.valueOf(result));
 	}
-	
-	public String getMethodName() {
+
+	@Override
+	public String getCheckerName() {
 		return CHECKER_NAME;
 	}
 

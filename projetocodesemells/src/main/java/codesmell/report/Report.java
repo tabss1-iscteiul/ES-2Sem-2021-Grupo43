@@ -7,35 +7,41 @@ import java.util.Map;
 
 public class Report {
 
+	private final Map<ReportID, List<IReportEntry<?>>> reportMap = new HashMap<>();
 
-	private final Map<String, List<IReportEntry<?>>> reportMap = new HashMap<>();
-	
-	public void addReportEntry(String key, IReportEntry<?> entry) {
+	public void addReportEntries(ReportID key, IReportEntry<?> entry) {
 		List<IReportEntry<?>> values = reportMap.getOrDefault(key, new ArrayList<>());
-		values.add(entry);
+		if (entry instanceof ReportArrayEntry) {
+			values.addAll(((ReportArrayEntry) entry).getCheckerValue());
+		} else {
+			values.add(entry);
+		}
 		reportMap.put(key, values);
 	}
 
-	
-	public Map<String, List<IReportEntry<?>>> getReport(){
+	public Map<ReportID, List<IReportEntry<?>>> getReport() {
 		return reportMap;
 	}
-	
-	public static class ReportID{
-		
+
+	public static class ReportID {
+
 		private String className;
 		private String packageName;
+
 		public ReportID(String packageName, String className) {
 			super();
 			this.className = className;
 			this.packageName = packageName;
 		}
+
 		public String getClassName() {
 			return className;
 		}
+
 		public String getPackageName() {
 			return packageName;
 		}
+
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -44,6 +50,7 @@ public class Report {
 			result = prime * result + ((packageName == null) ? 0 : packageName.hashCode());
 			return result;
 		}
+
 		@Override
 		public boolean equals(Object obj) {
 			if (this == obj)
@@ -65,9 +72,6 @@ public class Report {
 				return false;
 			return true;
 		}
-		
-		
-		
-		
+
 	}
 }

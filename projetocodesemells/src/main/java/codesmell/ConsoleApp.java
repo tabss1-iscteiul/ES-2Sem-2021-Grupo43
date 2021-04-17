@@ -7,9 +7,11 @@ import java.util.Collection;
 
 import codesmell.checks.CycloChecker;
 import codesmell.checks.CycloMethodChecker;
+import codesmell.checks.GodClassChecker;
 import codesmell.checks.IChecker;
 import codesmell.checks.LineChecker;
 import codesmell.checks.LineMethodChecker;
+import codesmell.checks.LongMethodChecker;
 import codesmell.checks.MethodChecker;
 import codesmell.reader.ASTReader;
 import codesmell.reader.IReader;
@@ -27,12 +29,11 @@ public class ConsoleApp {
 			new MethodChecker(), 
 			new CycloChecker(), 
 			new CycloMethodChecker(),
-			new LineMethodChecker());
+			new LineMethodChecker(), new GodClassChecker(), new LongMethodChecker());
 		IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
 		IWriter cwriter = new ConsoleWriter();
 		IWriter writer = new ExcelWriter();
 
-		IWriter writer = new ConsoleWriter();
 		Report report = reader.runCheckers(checkers);
 		writer.write(report);
 		cwriter.write(report);
