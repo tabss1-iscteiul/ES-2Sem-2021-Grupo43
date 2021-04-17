@@ -47,7 +47,7 @@ public class ExcelWriter implements IWriter {
 			firstLine.createCell(8).setCellValue("CYCLO_method");
 			firstLine.createCell(9).setCellValue("is_Long_Method");
 			// primeira linha
-			HSSFRow rowhead = sheet.createRow((short) 0);
+			//HSSFRow rowhead = sheet.createRow((short) 0);
 
 
 			int index = 1;
