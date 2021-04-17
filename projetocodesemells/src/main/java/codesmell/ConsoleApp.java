@@ -17,11 +17,6 @@ import codesmell.report.Report;
 import codesmell.writer.ConsoleWriter;
 import codesmell.writer.ExcelWriter;
 import codesmell.writer.IWriter;
-<<<<<<< HEAD
-=======
-
-// M�todo para testar as caracter�sticas gerais do projeto
->>>>>>> branch 'master' of https://github.com/tabss1-iscteiul/ES-2Sem-2021-Grupo43.git
 public class ConsoleApp {
 
 	public static void main(String[] args) throws IOException {
@@ -34,15 +29,10 @@ public class ConsoleApp {
 			new CycloMethodChecker(),
 			new LineMethodChecker());
 		IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
-<<<<<<< HEAD
 		IWriter cwriter = new ConsoleWriter();
 		IWriter writer = new ExcelWriter();
 
-=======
 		IWriter writer = new ConsoleWriter();
-		
-		// Running main code
->>>>>>> branch 'master' of https://github.com/tabss1-iscteiul/ES-2Sem-2021-Grupo43.git
 		Report report = reader.runCheckers(checkers);
 		writer.write(report);
 		cwriter.write(report);
