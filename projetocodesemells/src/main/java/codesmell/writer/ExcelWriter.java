@@ -12,10 +12,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 
-import codesmell.checks.CycloChecker;
-import codesmell.checks.CycloMethodChecker;
 import codesmell.checks.LineChecker;
-import codesmell.checks.LineMethodChecker;
 import codesmell.checks.MethodChecker;
 import codesmell.report.IReportEntry;
 import codesmell.report.Report;
@@ -23,6 +20,11 @@ import codesmell.report.ReportEntry;
 import codesmell.report.ReportMultipleEntry;
 
 public class ExcelWriter implements IWriter {
+<<<<<<< HEAD
+=======
+	private LineChecker line;
+	private MethodChecker method;
+>>>>>>> branch 'master' of https://github.com/tabss1-iscteiul/ES-2Sem-2021-Grupo43.git
 
 	@Override
 	public void write(Report report) {
@@ -37,6 +39,7 @@ public class ExcelWriter implements IWriter {
 			// Nome da página do excell
 			HSSFSheet sheet = workbook.createSheet("Code Smells");
 
+<<<<<<< HEAD
 			// primeira linha EXEMPLOOOOO
 			HSSFRow firstLine = sheet.createRow((short) 0);
 			firstLine.createCell(0).setCellValue("MethodID");
@@ -49,8 +52,19 @@ public class ExcelWriter implements IWriter {
 			firstLine.createCell(7).setCellValue("is_God_Class");
 			firstLine.createCell(8).setCellValue("CYCLO_method");
 			firstLine.createCell(9).setCellValue("is_Long_Method");
-			// células da primeira linha
+=======
+			// primeira linha
+			HSSFRow rowhead = sheet.createRow((short) 0);
 
+>>>>>>> branch 'master' of https://github.com/tabss1-iscteiul/ES-2Sem-2021-Grupo43.git
+			// células da primeira linha
+<<<<<<< HEAD
+
+=======
+			rowhead.createCell(0).setCellValue(line.getLineName());
+			rowhead.createCell(1).setCellValue(method.getMethodName());
+			
+>>>>>>> branch 'master' of https://github.com/tabss1-iscteiul/ES-2Sem-2021-Grupo43.git
 			int index = 1;
 
 			for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {

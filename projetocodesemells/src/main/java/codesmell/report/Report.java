@@ -7,19 +7,17 @@ import java.util.Map;
 
 public class Report {
 
-	private final Map<ReportID, List<IReportEntry<?>>> reportMap = new HashMap<>();
 
-	public void addReportEntries(ReportID key, IReportEntry<?> entry) {
+	private final Map<String, List<IReportEntry<?>>> reportMap = new HashMap<>();
+	
+	public void addReportEntry(String key, IReportEntry<?> entry) {
 		List<IReportEntry<?>> values = reportMap.getOrDefault(key, new ArrayList<>());
-		if (entry instanceof ReportArrayEntry) {
-			values.addAll(((ReportArrayEntry)entry).getCheckerValue());
-		}else {
-			values.add(entry);
-		}
+		values.add(entry);
 		reportMap.put(key, values);
 	}
 
-	public Map<ReportID, List<IReportEntry<?>>> getReport() {
+	
+	public Map<String, List<IReportEntry<?>>> getReport(){
 		return reportMap;
 	}
 	

@@ -4,17 +4,20 @@ import com.github.javaparser.ast.CompilationUnit;
 import codesmell.report.ReportEntry;
 
 public class LineChecker implements IChecker {
-
-	private static final String CHECKER_NAME = "LOC_class";
-
+	
+	//número de linhas de código 
+	private static final String CHECKER_NAME = "LineChecker";
+	
 	public ReportEntry check(CompilationUnit compilationUnit) {
-
-		int counter = compilationUnit.toString().split("\n").length;
-
-		return new ReportEntry(CHECKER_NAME, String.valueOf(counter));
+		
+		int result = compilationUnit.toString().split("\n").length;
+		
+		return new ReportEntry(CHECKER_NAME, String.valueOf(result));
 	}
-
-	public String getCheckerName() {
+	
+	
+	public String getLineName() {
+		
 		return CHECKER_NAME;
 	}
 }

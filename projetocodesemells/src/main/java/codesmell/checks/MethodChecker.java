@@ -5,15 +5,20 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import codesmell.report.ReportEntry;
 
 public class MethodChecker implements IChecker {
-	private static final String CHECKER_NAME = "NOM_class";
-	
-	public ReportEntry check(CompilationUnit compilationUnit) {
-		int counter = compilationUnit.findAll(MethodDeclaration.class).size();
+	private static final String CHECKER_NAME = "MethodChecker";
 
-		return new ReportEntry(CHECKER_NAME, String.valueOf(counter));
+	public ReportEntry check(CompilationUnit compilationUnit) {
+		int result = compilationUnit.findAll(MethodDeclaration.class).size();
+
+		/*compilationUnit.findAll(MethodDeclaration.class).forEach( m -> {
+			
+			System.out.println("Method " + m.getNameAsString() + "    Lines " + (m.toString().split("\n").length));
+		});*/
+		return new ReportEntry(CHECKER_NAME, String.valueOf(result));
 	}
 	
-	public String getCheckerName() {
+	public String getMethodName() {
 		return CHECKER_NAME;
 	}
+
 }
