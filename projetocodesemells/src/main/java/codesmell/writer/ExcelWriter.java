@@ -44,8 +44,9 @@ public class ExcelWriter implements IWriter {
 			firstLine.createCell(5).setCellValue("LOC_class");
 			firstLine.createCell(6).setCellValue("WMC_class");
 			firstLine.createCell(7).setCellValue("is_God_Class");
-			firstLine.createCell(8).setCellValue("CYCLO_method");
-			firstLine.createCell(9).setCellValue("is_Long_Method");
+			firstLine.createCell(8).setCellValue("LOC_method");
+			firstLine.createCell(9).setCellValue("CYCLO_method");
+			firstLine.createCell(10).setCellValue("is_Long_Method");
 			// primeira linha
 			//HSSFRow rowhead = sheet.createRow((short) 0);
 
@@ -54,40 +55,40 @@ public class ExcelWriter implements IWriter {
 
 			for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
 				Report.ReportID reportID = item.getKey();
-				boolean isGodClass = geIsGodClassFromEntries(item.getValue());
+				String isGodClass = geIsGodClassFromEntries(item.getValue());
+				int lineClass = getlineClassFromEntries(item.getValue());
 				int nMethodsClass = getNumberMethodsClassFromEntries(item.getValue());
 				int cycloClass = getCycloClassFromEntries(item.getValue());
-
+				
 				Map<String, String> cycloMethod = geCycloMethodFromEntries(item.getValue());
 				Map<String, String> lineMethod = geLineMethodFromEntries(item.getValue());
 				Map<String, String> longMethod = geLongMethodFromEntries(item.getValue());
 
 				for (String mehtodName : cycloMethod.keySet()) {
-					HSSFRow row = sheet.createRow((short) index++);
+					HSSFRow row = sheet.createRow((short) index);
 					
-					row.createCell(0).setCellValue(index);
+					row.createCell(0).setCellValue(index++);
 					row.createCell(1).setCellValue(reportID.getPackageName());
 					row.createCell(2).setCellValue(reportID.getClassName());
 					row.createCell(3).setCellValue(mehtodName);
-					row.createCell(4).setCellValue(nMethodsClass);
-					row.createCell(5).setCellValue(cycloClass);
-					row.createCell(6).setCellValue(isGodClass ? "VERDADEIRO" : "FALSO");
-					row.createCell(7).setCellValue(cycloMethod.get(mehtodName));
-					row.createCell(8).setCellValue(lineMethod.get(mehtodName));
-					if (longMethod.get(mehtodName).equals("true")) {
-						row.createCell(9).setCellValue("VERDADEIRO");
+					row.createCell(4).setCellValue(lineClass);
+					row.createCell(5).setCellValue(nMethodsClass);
+					row.createCell(6).setCellValue(cycloClass);
+					if (isGodClass.equals("true")) {
+						row.createCell(7).setCellValue("VERDADEIRO");
 					} else {
-						row.createCell(9).setCellValue("FALSO");
+						row.createCell(7).setCellValue("FALSO");
+					}
+					row.createCell(8).setCellValue(cycloMethod.get(mehtodName));
+					row.createCell(9).setCellValue(lineMethod.get(mehtodName));
+					if (longMethod.get(mehtodName).equals("true")) {
+						row.createCell(10).setCellValue("VERDADEIRO");
+					} else {
+						row.createCell(10).setCellValue("FALSO");
 					}
 				}
 			}
-			/*
-			 * Row row = null; while (rs.next()) { // if ( sheetCount <= 1000000 ) { row =
-			 * sheet.createRow(index); index++; } if ( sheetCount > 1000000 && sheetCount <=
-			 * 2000000) { row = sheet2.createRow(index2); index2++; } if ( sheetCount >
-			 * 2000000 && sheetCount <= 3000000) { row = sheet3.createRow(index3); index3++;
-			 * } }
-			 */
+			
 
 			FileOutputStream fileOut = new FileOutputStream("C:\\Users\\TOSHIBA\\Documents\\teste\\Code_Smells.xls");
 
@@ -103,6 +104,12 @@ public class ExcelWriter implements IWriter {
 
 	}
 
+	private int getlineClassFromEntries(List<IReportEntry<?>> value) {
+		return value.stream().filter(e -> e.getCheckerName().equals("LOC_class")).findFirst()
+				.map(e -> Integer.valueOf(((ReportEntry) e).getCheckerValue())).orElse(0);
+	}
+	
+	
 	private int getCycloClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("WMC_class")).findFirst()
 				.map(e -> Integer.valueOf(((ReportEntry) e).getCheckerValue())).orElse(0);
@@ -113,9 +120,9 @@ public class ExcelWriter implements IWriter {
 				.map(e -> Integer.valueOf(((ReportEntry) e).getCheckerValue())).orElse(0);
 	}
 
-	private boolean geIsGodClassFromEntries(List<IReportEntry<?>> value) {
+	private String geIsGodClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("God_class")).findFirst()
-				.map(e -> Boolean.getBoolean(((ReportEntry) e).getCheckerValue())).orElse(false);
+				.map(e -> (((ReportEntry) e).getCheckerValue())).get();
 	}
 
 	private Map<String, String> geCycloMethodFromEntries(List<IReportEntry<?>> value) {
