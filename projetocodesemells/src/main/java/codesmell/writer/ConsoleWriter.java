@@ -71,7 +71,7 @@ public class ConsoleWriter implements IWriter {
 		}
 	}
 
-	private int getCycloClassFromEntries(List<IReportEntry<?>> value) {
+	public /*private*/ int getCycloClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("WMC_class") ).
 			findFirst().

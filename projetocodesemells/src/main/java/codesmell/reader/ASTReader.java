@@ -23,7 +23,7 @@ public class ASTReader implements IReader {
 		this.projectPath = projectPath;
 	}
 
-	private Collection<File> getAllJavaFiles() throws IOException {
+	public Collection<File> getAllJavaFiles() throws IOException {
 		return Files.walk(Paths.get(this.projectPath))
 			.filter(p -> predicate(p))
 			.map(p -> p.toFile())
