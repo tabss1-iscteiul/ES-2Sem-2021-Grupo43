@@ -104,28 +104,28 @@ public class ExcelWriter implements IWriter {
 
 	}
 
-	public /*private*/ int getlineClassFromEntries(List<IReportEntry<?>> value) {
+	private int getlineClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("LOC_class")).findFirst()
 				.map(e -> Integer.valueOf(((ReportEntry) e).getCheckerValue())).orElse(0);
 	}
 	
 	
-	public /*private*/ int getCycloClassFromEntries(List<IReportEntry<?>> value) {
+	private int getCycloClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("WMC_class")).findFirst()
 				.map(e -> Integer.valueOf(((ReportEntry) e).getCheckerValue())).orElse(0);
 	}
 
-	public /*private*/ int getNumberMethodsClassFromEntries(List<IReportEntry<?>> value) {
+	private int getNumberMethodsClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("NOM_class")).findFirst()
 				.map(e -> Integer.valueOf(((ReportEntry) e).getCheckerValue())).orElse(0);
 	}
 
-	public /*private*/ String geIsGodClassFromEntries(List<IReportEntry<?>> value) {
+	private String geIsGodClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("God_class")).findFirst()
 				.map(e -> (((ReportEntry) e).getCheckerValue())).get();
 	}
 
-	public /*private*/ Map<String, String> geCycloMethodFromEntries(List<IReportEntry<?>> value) {
+	private Map<String, String> geCycloMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("CYCLO_method")).findFirst()
 				.map(e -> ((ReportMultipleEntry) e).getCheckerValueAsMap()).orElse(Collections.emptyMap());
 	}
@@ -135,7 +135,7 @@ public class ExcelWriter implements IWriter {
 				.map(e -> ((ReportMultipleEntry) e).getCheckerValueAsMap()).orElse(Collections.emptyMap());
 	}
 
-	public /*private*/ Map<String, String> geLongMethodFromEntries(List<IReportEntry<?>> value) {
+	private Map<String, String> geLongMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("Long_Method")).findFirst()
 				.map(e -> ((ReportMultipleEntry) e).getCheckerValueAsMap()).orElse(Collections.emptyMap());
 	}

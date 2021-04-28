@@ -71,7 +71,7 @@ public class ConsoleWriter implements IWriter {
 		}
 	}
 
-	public /*private*/ int getCycloClassFromEntries(List<IReportEntry<?>> value) {
+	private int getCycloClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("WMC_class") ).
 			findFirst().
@@ -79,7 +79,7 @@ public class ConsoleWriter implements IWriter {
 			orElse(0);
 	}
 
-	public /*private*/ int getNumberMethodsClassFromEntries(List<IReportEntry<?>> value) {
+	private int getNumberMethodsClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("NOM_class") ).
 			findFirst().
@@ -87,7 +87,7 @@ public class ConsoleWriter implements IWriter {
 			orElse(0);
 	}
 
-	public /*private*/ boolean geIsGodClassFromEntries(List<IReportEntry<?>> value) {
+	private boolean geIsGodClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("God_class") ).
 			findFirst().
@@ -95,7 +95,7 @@ public class ConsoleWriter implements IWriter {
 			orElse(false);
 	}
 
-	public /*private*/ Map<String, String> geCycloMethodFromEntries(List<IReportEntry<?>> value) {
+	private Map<String, String> geCycloMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("CYCLO_method") ).
 			findFirst().
@@ -104,7 +104,7 @@ public class ConsoleWriter implements IWriter {
 			;
 	}
 	
-	public /*private*/ Map<String, String> geLineMethodFromEntries(List<IReportEntry<?>> value) {
+	private Map<String, String> geLineMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("LOC_method") ).
 			findFirst().
@@ -113,7 +113,7 @@ public class ConsoleWriter implements IWriter {
 			;
 	}
 	
-	public /*private*/ Map<String, String> geLongMethodFromEntries(List<IReportEntry<?>> value) {
+	private Map<String, String> geLongMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("Long_Method") ).
 			findFirst().
