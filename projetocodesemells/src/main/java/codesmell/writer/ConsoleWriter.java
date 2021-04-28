@@ -79,7 +79,7 @@ public class ConsoleWriter implements IWriter {
 			orElse(0);
 	}
 
-	private int getNumberMethodsClassFromEntries(List<IReportEntry<?>> value) {
+	public /*private*/ int getNumberMethodsClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("NOM_class") ).
 			findFirst().
@@ -87,7 +87,7 @@ public class ConsoleWriter implements IWriter {
 			orElse(0);
 	}
 
-	private boolean geIsGodClassFromEntries(List<IReportEntry<?>> value) {
+	public /*private*/ boolean geIsGodClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("God_class") ).
 			findFirst().
@@ -95,7 +95,7 @@ public class ConsoleWriter implements IWriter {
 			orElse(false);
 	}
 
-	private Map<String, String> geCycloMethodFromEntries(List<IReportEntry<?>> value) {
+	public /*private*/ Map<String, String> geCycloMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("CYCLO_method") ).
 			findFirst().
@@ -104,7 +104,7 @@ public class ConsoleWriter implements IWriter {
 			;
 	}
 	
-	private Map<String, String> geLineMethodFromEntries(List<IReportEntry<?>> value) {
+	public /*private*/ Map<String, String> geLineMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("LOC_method") ).
 			findFirst().
@@ -113,7 +113,7 @@ public class ConsoleWriter implements IWriter {
 			;
 	}
 	
-	private Map<String, String> geLongMethodFromEntries(List<IReportEntry<?>> value) {
+	public /*private*/ Map<String, String> geLongMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("Long_Method") ).
 			findFirst().

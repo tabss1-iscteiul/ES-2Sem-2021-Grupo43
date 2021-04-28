@@ -11,6 +11,7 @@ import junit.framework.TestCase;
  */
 public class ReportArrayEntryTest extends TestCase {
 
+	private ReportArrayEntry reportArrayEntry = new ReportArrayEntry();
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
@@ -23,7 +24,7 @@ public class ReportArrayEntryTest extends TestCase {
 	 * Test method for {@link codesmell.report.ReportArrayEntry#getCheckerName()}.
 	 */
 	public final void testGetCheckerName() {
-		fail("Not yet implemented");
+		assertEquals("", reportArrayEntry.getCheckerName());
 	}
 
 	/**
