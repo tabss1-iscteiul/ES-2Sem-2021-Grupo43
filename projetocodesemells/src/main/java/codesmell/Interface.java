@@ -1,8 +1,15 @@
 
 package codesmell;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.JFileChooser;
+
 public class Interface extends javax.swing.JFrame {
 
+	private File [] pastaSelecionada;
     /**
      * Creates new form Frame
      */
@@ -67,6 +74,7 @@ public class Interface extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         
         
@@ -87,7 +95,25 @@ public class Interface extends javax.swing.JFrame {
 
         //Boatao do caminho da pasta
         jButton1.setText("Path");
-
+        jButton1.addActionListener(new ActionListener() {
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JFileChooser jfc = new JFileChooser(".");
+		jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);	
+						 int returnValue = jfc.showOpenDialog(null);
+		
+						 if (returnValue == JFileChooser.APPROVE_OPTION) {
+		
+						 File selectedFile = jfc.getSelectedFile();
+				 pastaSelecionada=selectedFile.listFiles();
+				 jTextField1.setText(selectedFile.getAbsolutePath());
+		
+	}
+}})
+        ;
+        
+     
         //Boatao do caminho de destino
         jButton2.setText("Path");
 
