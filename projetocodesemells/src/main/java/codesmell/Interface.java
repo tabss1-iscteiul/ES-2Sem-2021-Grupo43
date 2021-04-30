@@ -116,7 +116,7 @@ public class Interface extends javax.swing.JFrame {
      
         //Boatao do caminho de destino
         jButton2.setText("Path");
-
+       
         //Titulo
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Editor de Regras");
