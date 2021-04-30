@@ -51,7 +51,7 @@ public class Report {
 			return result;
 		}
 
-		@Override
+	/*	@Override
 		public boolean equals(Object obj) {
 			if (this == obj)
 				return true;
@@ -71,7 +71,7 @@ public class Report {
 			} else if (!packageName.equals(other.packageName))
 				return false;
 			return true;
-		}
+		}*/
 
 	}
 }

@@ -26,26 +26,12 @@ public class ReportArrayEntryTest extends TestCase {
 	public final void testGetCheckerName() {
 		assertEquals("", reportArrayEntry.getCheckerName());
 	}
-
-	/**
-	 * Test method for {@link codesmell.report.ReportArrayEntry#getCheckerValue()}.
-	 */
-	public final void testGetCheckerValue() {
-		fail("Not yet implemented");
-	}
-
+	
 	/**
 	 * Test method for {@link codesmell.report.ReportArrayEntry#isMultiEntry()}.
 	 */
 	public final void testIsMultiEntry() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link codesmell.report.ReportArrayEntry#addReportEntry(codesmell.report.IReportEntry)}.
-	 */
-	public final void testAddReportEntry() {
-		fail("Not yet implemented");
+		assertEquals(false, reportArrayEntry.isMultiEntry());
 	}
 
 }
