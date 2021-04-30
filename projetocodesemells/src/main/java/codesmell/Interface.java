@@ -116,7 +116,23 @@ public class Interface extends javax.swing.JFrame {
      
         //Boatao do caminho de destino
         jButton2.setText("Path");
-       
+        jButton2.addActionListener(new ActionListener() {
+        	
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		JFileChooser jfc = new JFileChooser(".");
+        		jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);	
+        						 int returnValue = jfc.showOpenDialog(null);
+        		
+        						 if (returnValue == JFileChooser.APPROVE_OPTION) {
+        		
+        						 File selectedFile = jfc.getSelectedFile();
+        				 pastaSelecionada=selectedFile.listFiles();
+        				 jTextField1.setText(selectedFile.getAbsolutePath());
+        		
+        	}
+        }})
+                ;
         //Titulo
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Editor de Regras");
