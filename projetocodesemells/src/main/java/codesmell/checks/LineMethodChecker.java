@@ -18,7 +18,7 @@ public class LineMethodChecker implements IChecker {
 		ReportMultipleEntry en = new ReportMultipleEntry(CHECKER_NAME);
 
 		compilationUnit.findAll(MethodDeclaration.class).stream().forEach(method -> {
-			String nameMethod = method.getDeclarationAsString(false, false);
+			/*String*/ nameMethod = method.getDeclarationAsString(false, false);
 			
 			int counterComment = method.findAll(Comment.class).stream().mapToInt(comment ->{
 				if (comment.isLineComment() || comment.isBlockComment() || 
