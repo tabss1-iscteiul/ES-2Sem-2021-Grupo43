@@ -18,7 +18,9 @@ public class ConsoleWriter implements IWriter {
 		for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
 			
 			Report.ReportID reportID = item.getKey();
-			boolean isGodClass = geIsGodClassFromEntries(item.getValue());
+			//boolean isGodClass = geIsGodClassFromEntries(item.getValue());
+			String isGodClass = geIsGodClassFromEntries(item.getValue());
+			
 			int nMethodsClass = getNumberMethodsClassFromEntries(item.getValue());
 			int cycloClass = getCycloClassFromEntries(item.getValue());
 	
@@ -40,7 +42,12 @@ public class ConsoleWriter implements IWriter {
 				System.out.print("|");
 				System.out.print(cycloClass);
 				System.out.print("|");
-				System.out.print(isGodClass ? "VERDADEIRO" : "FALSO");
+				//System.out.print(isGodClass ? "VERDADEIRO" : "FALSO");
+				if (isGodClass.equals("true")) {
+					System.out.print("VERDADEIRO");
+				}else {
+					System.out.print("FALSO");
+				}
 				System.out.print("|");
 				System.out.print(cycloMethod.get(mehtodName));
 				System.out.print("|");
@@ -87,13 +94,13 @@ public class ConsoleWriter implements IWriter {
 			orElse(0);
 	}
 
-	private boolean geIsGodClassFromEntries(List<IReportEntry<?>> value) {
+/*	private boolean geIsGodClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("God_class") ).
 			findFirst().
 			map( e -> Boolean.getBoolean(((ReportEntry)e).getCheckerValue())).
 			orElse(false);
-	}
+	}*/
 
 	private Map<String, String> geCycloMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
@@ -120,5 +127,10 @@ public class ConsoleWriter implements IWriter {
 			map( e -> ((ReportMultipleEntry)e).getCheckerValueAsMap()).
 			orElse( Collections.emptyMap())
 			;
+	}
+	
+	private String geIsGodClassFromEntries(List<IReportEntry<?>> value) {
+		return value.stream().filter(e -> e.getCheckerName().equals("God_class")).findFirst()
+				.map(e -> (((ReportEntry) e).getCheckerValue())).get();
 	}
 }
