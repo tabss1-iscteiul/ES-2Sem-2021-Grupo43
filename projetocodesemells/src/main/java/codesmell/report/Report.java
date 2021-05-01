@@ -50,28 +50,5 @@ public class Report {
 			result = prime * result + ((packageName == null) ? 0 : packageName.hashCode());
 			return result;
 		}
-
-	/*	@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			ReportID other = (ReportID) obj;
-			if (className == null) {
-				if (other.className != null)
-					return false;
-			} else if (!className.equals(other.className))
-				return false;
-			if (packageName == null) {
-				if (other.packageName != null)
-					return false;
-			} else if (!packageName.equals(other.packageName))
-				return false;
-			return true;
-		}*/
-
 	}
 }

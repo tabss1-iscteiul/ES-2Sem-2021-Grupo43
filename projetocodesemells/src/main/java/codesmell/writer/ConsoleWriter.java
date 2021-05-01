@@ -20,7 +20,7 @@ public class ConsoleWriter implements IWriter {
 			Report.ReportID reportID = item.getKey();
 			//boolean isGodClass = geIsGodClassFromEntries(item.getValue());
 			String isGodClass = geIsGodClassFromEntries(item.getValue());
-			
+			int lineClass = getlineClassFromEntries(item.getValue());
 			int nMethodsClass = getNumberMethodsClassFromEntries(item.getValue());
 			int cycloClass = getCycloClassFromEntries(item.getValue());
 	
@@ -41,6 +41,8 @@ public class ConsoleWriter implements IWriter {
 				System.out.print(nMethodsClass);
 				System.out.print("|");
 				System.out.print(cycloClass);
+				System.out.print("|");
+				System.out.print(lineClass);
 				System.out.print("|");
 				//System.out.print(isGodClass ? "VERDADEIRO" : "FALSO");
 				if (isGodClass.equals("true")) {
@@ -77,8 +79,14 @@ public class ConsoleWriter implements IWriter {
 			
 		}
 	}
+	
+	private int getlineClassFromEntries(List<IReportEntry<?>> value) {
+		return value.stream().filter(e -> e.getCheckerName().equals("LOC_class")).findFirst()
+				.map(e -> Integer.valueOf(((ReportEntry) e).getCheckerValue())).orElse(0);
+	}
+	
 
-	private int getCycloClassFromEntries(List<IReportEntry<?>> value) {
+	public /*private*/ int getCycloClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("WMC_class") ).
 			findFirst().
@@ -86,7 +94,7 @@ public class ConsoleWriter implements IWriter {
 			orElse(0);
 	}
 
-	private int getNumberMethodsClassFromEntries(List<IReportEntry<?>> value) {
+	public/*private*/ int getNumberMethodsClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("NOM_class") ).
 			findFirst().
@@ -102,7 +110,7 @@ public class ConsoleWriter implements IWriter {
 			orElse(false);
 	}*/
 
-	private Map<String, String> geCycloMethodFromEntries(List<IReportEntry<?>> value) {
+	public /*private*/ Map<String, String> geCycloMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("CYCLO_method") ).
 			findFirst().
@@ -111,7 +119,7 @@ public class ConsoleWriter implements IWriter {
 			;
 	}
 	
-	private Map<String, String> geLineMethodFromEntries(List<IReportEntry<?>> value) {
+	public /*private*/ Map<String, String> geLineMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("LOC_method") ).
 			findFirst().
@@ -120,7 +128,7 @@ public class ConsoleWriter implements IWriter {
 			;
 	}
 	
-	private Map<String, String> geLongMethodFromEntries(List<IReportEntry<?>> value) {
+	public /*private*/ Map<String, String> geLongMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().
 			filter( e -> e.getCheckerName().equals("Long_Method") ).
 			findFirst().
@@ -129,7 +137,7 @@ public class ConsoleWriter implements IWriter {
 			;
 	}
 	
-	private String geIsGodClassFromEntries(List<IReportEntry<?>> value) {
+	public /*private*/ String geIsGodClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("God_class")).findFirst()
 				.map(e -> (((ReportEntry) e).getCheckerValue())).get();
 	}
