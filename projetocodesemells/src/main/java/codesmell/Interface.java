@@ -118,7 +118,7 @@ public class Interface extends javax.swing.JFrame {
         };
   
         // Column Names
-        String colHeadings[] = new String[] { "MethodID", "Package", "class","method","NOM_class","LOC_class","WMC_class","is_God_Class","LOC_Method","CYCLO_Method","is_Long_Method"};
+        //String colHeadings[] = new String[] { "MethodID", "Package", "class","method","NOM_class","LOC_class","WMC_class","is_God_Class","LOC_Method","CYCLO_Method","is_Long_Method"};
 		
         String[] columns = {"MethodID", "Package", "class"};
         // Initializing the JTable
