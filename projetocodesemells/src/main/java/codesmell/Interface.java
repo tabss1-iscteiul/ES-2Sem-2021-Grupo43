@@ -106,11 +106,6 @@ public class Interface extends javax.swing.JFrame {
 
 		jLabel2.setText("Destino");
 
-		// painel superior
-		//jScrollPane1.setViewportView(jTextPane1);
-		
-		//jTextPane1.setText("Olá mundo");
-        
 		// mudar para default um caminho onde estao guardados
 		// TODO
 		jTextField1.setText("caminho da pasta");
