@@ -112,18 +112,18 @@ public class Interface extends javax.swing.JFrame {
 		//jTextPane1.setText("Olá mundo");
 		
 		 // Data to be displayed in the JTable
-		String data[][] = new String[][] {
-            { "Kundan Kumar Jha", "4031", "CSE"},
+        String[][] data = {
+            { "Kundan Kumar Jha", "4031", "CSE", "ER" },
             { "Anand Jha", "6014", "IT" }
         };
   
         // Column Names
-        //String colHeadings[] = new String[] { "MethodID", "Package", "class","method","NOM_class","LOC_class","WMC_class","is_God_Class","LOC_Method","CYCLO_Method","is_Long_Method"};
+      //  String[] columnNamesTest = { "MethodID", "Package", "class","method","NOM_class","LOC_class","WMC_class","is_God_Class","LOC_Method","CYCLO_Method","is_Long_Method"};
 		
         String[] columns = {"MethodID", "Package", "class"};
         // Initializing the JTable
         j = new JTable(data, columns);
-        j.setBounds(700, 700, 700, 700);
+        j.setBounds(30, 40, 200, 300);
         
         jScrollPane1.setViewportView(j);
         
