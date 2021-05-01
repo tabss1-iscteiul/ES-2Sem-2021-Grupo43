@@ -80,7 +80,7 @@ public class ConsoleWriter implements IWriter {
 		}
 	}
 	
-	private int getlineClassFromEntries(List<IReportEntry<?>> value) {
+	public/*private*/ int getlineClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("LOC_class")).findFirst()
 				.map(e -> Integer.valueOf(((ReportEntry) e).getCheckerValue())).orElse(0);
 	}

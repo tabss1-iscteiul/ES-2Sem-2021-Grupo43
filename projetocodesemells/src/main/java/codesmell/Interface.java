@@ -107,8 +107,26 @@ public class Interface extends javax.swing.JFrame {
 		jLabel2.setText("Destino");
 
 		// painel superior
-		jScrollPane1.setViewportView(jTextPane1);
-
+		//jScrollPane1.setViewportView(jTextPane1);
+		
+		//jTextPane1.setText("Olá mundo");
+		
+		 // Data to be displayed in the JTable
+		String data[][] = new String[][] {
+            { "Kundan Kumar Jha", "4031", "CSE"},
+            { "Anand Jha", "6014", "IT" }
+        };
+  
+        // Column Names
+        String colHeadings[] = new String[] { "MethodID", "Package", "class","method","NOM_class","LOC_class","WMC_class","is_God_Class","LOC_Method","CYCLO_Method","is_Long_Method"};
+		
+        String[] columns = {"MethodID", "Package", "class"};
+        // Initializing the JTable
+        j = new JTable(data, columns);
+        j.setBounds(700, 700, 700, 700);
+        
+        jScrollPane1.setViewportView(j);
+        
 		// mudar para default um caminho onde estao guardados
 		// TODO
 		jTextField1.setText("caminho da pasta");
@@ -297,17 +315,17 @@ public class Interface extends javax.swing.JFrame {
 
 		jButton7.setText("Cancel");
 		
-		String[][] data;
-		String[] columnNames;
-		/*int methodID = 0;
+		String[][] dataTest;
+		
+		int methodID = 0;
 		 
-		 
+	/*	 
 		for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
 			
 			Report.ReportID reportID = item.getKey();
 			//boolean isGodClass = geIsGodClassFromEntries(item.getValue());
 			String isGodClass = consoleWriter.geIsGodClassFromEntries(item.getValue());
-			int lineClass = getlineClassFromEntries(item.getValue());
+			int lineClass = consoleWriter.getlineClassFromEntries(item.getValue());
 			int nMethodsClass = consoleWriter.getNumberMethodsClassFromEntries(item.getValue());
 			int cycloClass = consoleWriter.getCycloClassFromEntries(item.getValue());
 	
@@ -316,41 +334,30 @@ public class Interface extends javax.swing.JFrame {
 			Map<String, String> longMethods = consoleWriter.geLongMethodFromEntries(item.getValue());
 			
 			for (String mehtodName : cycloMethod.keySet()) {
-				columnNames[0]= "MethodID";
-				data[0][++methodID]=Integer.toString(++methodID);
-				columnNames[1] = "package";
-				data[1][++methodID]=reportID.getPackageName();
-				columnNames[2]  = "class";
-				data[2][++value]=reportID.getClassName();
-				data[3][0] = "method";
-				data[3][++value] =mehtodName;
-				data[4][0] = "NOM_class";
-				data[4][++value] = nMethodsClass;
-				data[5][0] = "LOC_class";
-				data[5][++value] =lineClass;
-				data[6][0] ="WMC_class";
-				data[6][++value] =cycloClass;
-				data[7][0] ="is_God_Class";
+				dataTest[++methodID][0]=Integer.toString(++methodID);
+				dataTest[++methodID][1]=reportID.getPackageName();
+				dataTest[++methodID][2]=reportID.getClassName();
+				dataTest[++methodID][3] =mehtodName;
+				dataTest[++methodID][4] = Integer.toString(nMethodsClass);
+				dataTest[++methodID][5] =Integer.toString(lineClass);
+				dataTest[++methodID][6] =Integer.toString(cycloClass);
 				if (isGodClass.equals("true")) {
-					data[7][++value] ="VERDADEIRO";
+					data[++methodID][7] ="VERDADEIRO";
 				}else {
-					data[7][++value] ="FALSO";
+					data[++methodID][7] ="FALSO";
 				}
-				data[8][0] ="LOC_Method";
-				data[8][++value] =cycloMethod.get(mehtodName);
-				data[9][0] ="CYCLO_Method";
-				data[9][++value] =lineMethod.get(mehtodName);
-				data[10][0] ="is_Long_Method";
+				dataTest[++methodID][8] =cycloMethod.get(mehtodName);
+				dataTest[++methodID][9] =lineMethod.get(mehtodName);
 				if (longMethods.get(mehtodName).equals("true")) {
-					data[10][++value] ="VERDADEIRO";
+					dataTest[++methodID][10] ="VERDADEIRO";
 				}else {
-					data[10][++value] ="FALSO";
+					dataTest[++methodID][10] ="FALSO";
 				}
 			}
 			
 			
-		}*/
-
+		}
+*/
 		// Organizacao do Layout
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
