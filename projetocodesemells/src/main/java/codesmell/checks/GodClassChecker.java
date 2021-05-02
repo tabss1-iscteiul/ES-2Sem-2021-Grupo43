@@ -10,9 +10,11 @@ public class GodClassChecker implements IChecker {
 
 	private int maxCyclomacy = 50;
 	private int maxNumberMethod = 10;
+	private int maxNumberLinesCode = 500;
 
 	private CycloChecker cycloChecker = new CycloChecker();
 	private MethodChecker methodChecker = new MethodChecker();
+	private LineChecker lineChecker = new LineChecker();
 
 	private static final String CHECKER_NAME = "God_class";
 
@@ -23,15 +25,23 @@ public class GodClassChecker implements IChecker {
 		this.maxCyclomacy = maxCyclomacy;
 		this.maxNumberMethod = maxNumberMethod;
 	}
+	
+	public GodClassChecker(int maxCyclomacy, int maxNumberMethod, int maxNumberLinesCode) {
+		this.maxCyclomacy = maxCyclomacy;
+		this.maxNumberMethod = maxNumberMethod;
+		this.maxNumberLinesCode = maxNumberLinesCode;
+	}
 
 	public ReportArrayEntry check(CompilationUnit compilationUnit) {
 
 		ReportEntry cycloResult = cycloChecker.check(compilationUnit);
 		ReportEntry methodResult = methodChecker.check(compilationUnit);
+		ReportEntry lineResult = lineChecker.check(compilationUnit);
 
 		ReportEntry godClassResult;
 		if (Integer.valueOf(cycloResult.getCheckerValue()) > maxCyclomacy
-				&& Integer.valueOf(methodResult.getCheckerValue()) > maxNumberMethod) {
+				&& Integer.valueOf(methodResult.getCheckerValue()) > maxNumberMethod  
+				&& Integer.valueOf(lineResult.getCheckerValue())> maxNumberLinesCode) {
 			godClassResult = new ReportEntry(CHECKER_NAME, "true");
 		} else {
 			godClassResult = new ReportEntry(CHECKER_NAME, "false");

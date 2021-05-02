@@ -71,8 +71,8 @@ public class ExcelWriter implements IWriter {
 					row.createCell(1).setCellValue(reportID.getPackageName());
 					row.createCell(2).setCellValue(reportID.getClassName());
 					row.createCell(3).setCellValue(mehtodName);
-					row.createCell(4).setCellValue(lineClass);
-					row.createCell(5).setCellValue(nMethodsClass);
+					row.createCell(4).setCellValue(nMethodsClass);
+					row.createCell(5).setCellValue(lineClass);
 					row.createCell(6).setCellValue(cycloClass);
 					if (isGodClass.equals("true")) {
 						row.createCell(7).setCellValue("VERDADEIRO");
