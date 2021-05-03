@@ -311,6 +311,8 @@ public class Interface extends javax.swing.JFrame {
 						cwriter.write(report);
 						jTextField9.setText("6");
 						jTextField11.setText("25");
+						jTextField13.setText("197");
+						jTextField10.setText("1190");
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
