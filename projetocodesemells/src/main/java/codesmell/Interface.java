@@ -251,21 +251,12 @@ public class Interface extends javax.swing.JFrame {
         	@Override
         	public void actionPerformed(ActionEvent e) {
         		JFileChooser jfc = new JFileChooser(".");
-
 				 jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
 				 int returnValue = jfc.showOpenDialog(null);
-
 				 if (returnValue == JFileChooser.APPROVE_OPTION) {
-
 				 File selectedFile = jfc.getSelectedFile();
-
 				 jTextField2.setText(selectedFile.getAbsolutePath());
-				 
-				
-
 				 }
-        		
         	}
         });
         
@@ -273,22 +264,12 @@ public class Interface extends javax.swing.JFrame {
         	@Override
         	public void actionPerformed(ActionEvent e) {
         		JFileChooser jfc2 = new JFileChooser(".");
-
 				 jfc2.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
 				 int returnValue = jfc2.showOpenDialog(null);
-
 				 if (returnValue == JFileChooser.APPROVE_OPTION) {
-
 				 File selectedFile = jfc2.getSelectedFile();
-
 				 jTextField1.setText(selectedFile.getAbsolutePath());
-				 
-				
-
 				 }
-       		
-        		
         	}
         });
         
