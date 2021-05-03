@@ -18,15 +18,15 @@ import codesmell.report.IReportEntry;
 import codesmell.report.Report;
 import codesmell.report.ReportEntry;
 
-public class ASTReader implements IReader {
+public class ASTReader implements IReader { // scanner
 
 	private final String projectPath;
 
-	public ASTReader(String projectPath) {
+	public ASTReader(String projectPath) { // recebe caminho 
 		this.projectPath = projectPath;
 	}
 
-	public Collection<File> getAllJavaFiles() throws IOException {
+	public Collection<File> getAllJavaFiles() throws IOException { // faz a leitura de cada java file
 		return Files.walk(Paths.get(this.projectPath))
 			.filter(p -> predicate(p))
 			.map(p -> p.toFile())
@@ -38,15 +38,14 @@ public class ASTReader implements IReader {
 	}
 
 	private int countClasses =0;
-	public Report runCheckers(Collection<IChecker> checkers) throws IOException {
+	public Report runCheckers(Collection<IChecker> checkers) throws IOException {  // criação do compilationUnit para cada file
 		Collection<File> javaFiles = getAllJavaFiles();
 		Report report = new Report();
-		for (File javaFile : javaFiles) {
-			System.out.printf("Processing: %s\n", javaFile.toString());
-			CompilationUnit compilationUnit = StaticJavaParser.parse(javaFile);
-		//	getTotalPackages(compilationUnit);
-			String packageName = compilationUnit.getPackageDeclaration().map(p -> p.getNameAsString()).orElse("");
-			String className = javaFile.getName().replaceAll(".java", "");
+		for (File javaFile : javaFiles) { // corre cada java file
+			System.out.printf("Processing: %s\n", javaFile.toString()); // dá o caminho todo do diretorio
+			CompilationUnit compilationUnit = StaticJavaParser.parse(javaFile); // criação de cada compilationUnit para cada classe - recebe java file
+			String packageName = compilationUnit.getPackageDeclaration().map(p -> p.getNameAsString()).orElse(""); // percorre cada package e dá o nome de cada um
+			String className = javaFile.getName().replaceAll(".java", ""); // dá o nome da classe - substitui .java por " "
 			countClasses ++;
 			Report.ReportID reportID = new Report.ReportID(packageName, className);
 			for( IChecker checker : checkers ) {
@@ -55,11 +54,6 @@ public class ASTReader implements IReader {
 		}
 		return report;
 	}
-		
-/*	public int getTotalPackages(CompilationUnit compilationUnit) {
-		name = compilationUnit.getPackageDeclaration().get().toString();
-		return count;
-	}*/
 	
 	public int getTotalClasses() {
 		return countClasses;
