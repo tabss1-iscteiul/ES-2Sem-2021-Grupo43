@@ -26,7 +26,7 @@ import junit.framework.TestCase;
  */
 public class ExcelWriterTest extends TestCase {
 
-	//private ExcelWriter excelWriter = new ExcelWriter();
+	//private ExcelWriter excelWriter = new ExcelWriter("C:\\Users\\TOSHIBA\\Documents\\teste");
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
