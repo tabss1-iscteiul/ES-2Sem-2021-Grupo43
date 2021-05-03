@@ -152,13 +152,14 @@ public class ConsoleWriter implements IWriter {
 	}
 	
 	public int counterMethods(Report report) {
-		int countMethods =0;
+		int countMethods =1;
 		for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
 			Map<String, String> cycloMethod = geCycloMethodFromEntries(item.getValue());
 			for (String cycloMethods : cycloMethod.keySet()) {
 				countMethods ++;
 				System.out.println("O numero de métodos é " + countMethods);
 			}
+			
 		}
 		return countMethods;
 	}
