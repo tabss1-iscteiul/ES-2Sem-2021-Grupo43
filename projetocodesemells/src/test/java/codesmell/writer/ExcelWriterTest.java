@@ -26,7 +26,7 @@ import junit.framework.TestCase;
  */
 public class ExcelWriterTest extends TestCase {
 
-	private ExcelWriter excelWriter = new ExcelWriter();
+	//private ExcelWriter excelWriter = new ExcelWriter();
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
@@ -48,7 +48,7 @@ public class ExcelWriterTest extends TestCase {
 				new LineMethodChecker(), new GodClassChecker(), new LongMethodChecker());
 			IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
 			Report report = reader.runCheckers(checkers);
-			excelWriter.write(report);
+			//excelWriter.write(report);
 	}
 
 }

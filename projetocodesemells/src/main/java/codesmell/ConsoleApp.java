@@ -32,10 +32,10 @@ public class ConsoleApp {
 			new LineMethodChecker(), new GodClassChecker(), new LongMethodChecker());
 		IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
 		IWriter cwriter = new ConsoleWriter();
-		IWriter writer = new ExcelWriter();
+		//IWriter writer = new ExcelWriter();
 
 		Report report = reader.runCheckers(checkers);
-		writer.write(report);
+		//writer.write(report);
 		cwriter.write(report);
 		
 	}

@@ -1,11 +1,17 @@
 package codesmell.writer;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -20,7 +26,15 @@ import codesmell.report.ReportEntry;
 import codesmell.report.ReportMultipleEntry;
 
 public class ExcelWriter implements IWriter {
-
+	private String path;
+	
+	
+	//alteracoes 
+	public ExcelWriter(String path) {
+		this.path=path;
+	}
+	
+	
 	@Override
 	public void write(Report report) {
 		try {
@@ -71,8 +85,8 @@ public class ExcelWriter implements IWriter {
 					row.createCell(1).setCellValue(reportID.getPackageName());
 					row.createCell(2).setCellValue(reportID.getClassName());
 					row.createCell(3).setCellValue(mehtodName);
-					row.createCell(4).setCellValue(nMethodsClass);
-					row.createCell(5).setCellValue(lineClass);
+					row.createCell(4).setCellValue(lineClass);
+					row.createCell(5).setCellValue(nMethodsClass);
 					row.createCell(6).setCellValue(cycloClass);
 					if (isGodClass.equals("true")) {
 						row.createCell(7).setCellValue("VERDADEIRO");
@@ -89,8 +103,11 @@ public class ExcelWriter implements IWriter {
 				}
 			}
 			
+			//alteracoes
+			
+			String mypath = this.path.concat("\\CodeSmells.xls");
 
-			FileOutputStream fileOut = new FileOutputStream("C:\\Users\\TOSHIBA\\Documents\\teste\\Code_Smells.xls");
+			FileOutputStream fileOut = new FileOutputStream(mypath);
 
 			workbook.write(fileOut);
 
