@@ -5,14 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Report {
+public class Report { // prepara o excel
 
 	private final Map<ReportID, List<IReportEntry<?>>> reportMap = new HashMap<>();
 
 	public void addReportEntries(ReportID key, IReportEntry<?> entry) {
 		List<IReportEntry<?>> values = reportMap.getOrDefault(key, new ArrayList<>());
 		if (entry instanceof ReportArrayEntry) {
-			values.addAll(((ReportArrayEntry) entry).getCheckerValue());
+			values.addAll(((ReportArrayEntry) entry).getCheckerValue()); // associa o nome da classe e do package aos checkers
 		} else {
 			values.add(entry);
 		}
@@ -23,7 +23,7 @@ public class Report {
 		return reportMap;
 	}
 
-	public static class ReportID {
+	public static class ReportID { // key no mapa
 
 		private String className;
 		private String packageName;
@@ -43,7 +43,7 @@ public class Report {
 		}
 
 		@Override
-		public int hashCode() {
+		public int hashCode() { // não permite que o excel tenha null
 			final int prime = 31;
 			int result = 1;
 			result = prime * result + ((className == null) ? 0 : className.hashCode());
