@@ -25,7 +25,7 @@ import codesmell.report.Report;
 import codesmell.report.ReportEntry;
 import codesmell.report.ReportMultipleEntry;
 
-public class ExcelWriter implements IWriter {
+public class ExcelWriter implements IWriter {//igual ao console writer, mas escreve no excel 
 	private String path;
 	
 	

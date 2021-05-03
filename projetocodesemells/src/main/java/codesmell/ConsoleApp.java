@@ -30,7 +30,7 @@ public class ConsoleApp {
 			new CycloChecker(), 
 			new CycloMethodChecker(),
 			new LineMethodChecker(), new GodClassChecker(), new LongMethodChecker());
-		IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
+		IReader reader = new ASTReader("C:\\Users\\Fujitsu\\Desktop\\jasml\\src");
 		IWriter cwriter = new ConsoleWriter();
 		//IWriter writer = new ExcelWriter();
 

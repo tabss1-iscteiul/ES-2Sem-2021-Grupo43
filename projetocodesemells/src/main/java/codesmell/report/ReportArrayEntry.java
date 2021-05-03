@@ -3,7 +3,7 @@ package codesmell.report;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReportArrayEntry implements IReportEntry<List<IReportEntry<?>>> {
+public class ReportArrayEntry implements IReportEntry<List<IReportEntry<?>>> { // valor aos checkers
 
 	private List<IReportEntry<?>> checkerValue = new ArrayList<>();
 

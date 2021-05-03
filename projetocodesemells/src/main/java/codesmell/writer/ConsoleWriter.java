@@ -10,7 +10,9 @@ import codesmell.report.ReportEntry;
 import codesmell.report.ReportMultipleEntry;
 
 public class ConsoleWriter implements IWriter {
-
+	
+	//para escrever na consola do java para saber que esta a funcionar 
+	
 	@Override
 	public void write(Report report) {
 		// TODO Auto-generated method stub

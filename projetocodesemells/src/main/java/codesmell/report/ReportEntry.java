@@ -4,7 +4,7 @@ public class ReportEntry implements IReportEntry<String>{
 	private String checkerName;
 	private String checkerValue;
 	
-	public ReportEntry(String checkerName, String checkerValue) {
+	public ReportEntry(String checkerName, String checkerValue) {// só esta feito para os checkers das classes
 		super();
 		this.checkerName = checkerName;
 		this.checkerValue = checkerValue;

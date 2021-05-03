@@ -9,7 +9,7 @@ public class ReportMultipleEntry implements IReportEntry<List<ReportMultipleEntr
 	private String checkerName;
 	private List<Entry> checkerValues = new ArrayList<ReportMultipleEntry.Entry>();
 
-	public ReportMultipleEntry(String checkerName) {
+	public ReportMultipleEntry(String checkerName) {// tudo para os checkers dos metodos
 		super();
 		this.checkerName = checkerName;
 	}
@@ -29,7 +29,7 @@ public class ReportMultipleEntry implements IReportEntry<List<ReportMultipleEntr
 		checkerValues.add(new Entry(name, value));
 	}
 
-	public static class Entry {
+	public static class Entry {// mete os resultados dos checkers dos metodos em cada linha do excel
 		private String name;
 		private String value;
 
