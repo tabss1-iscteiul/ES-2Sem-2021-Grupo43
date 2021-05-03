@@ -162,13 +162,4 @@ public class ConsoleWriter implements IWriter {
 		}
 		return countMethods;
 	}
-
-	/*
-	 * public int counterLineCode(Report report) { int counterLineCode =0; for
-	 * (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item :
-	 * report.getReport().entrySet()) { int lineClass =
-	 * getlineClassFromEntries(item.getValue()); counterLineCode += lineClass;
-	 * System.out.println("O numero de linhas de codigo por classe é " + lineClass +
-	 * " o total de linhas é "+ counterLineCode); } return counterLineCode; }
-	 */
 }
