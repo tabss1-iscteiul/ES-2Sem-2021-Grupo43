@@ -38,9 +38,9 @@ public class ConsoleWriter implements IWriter {
 				System.out.print("|");
 				System.out.print(mehtodName);
 				System.out.print("|");
-				System.out.print(lineClass);
-				System.out.print("|");
 				System.out.print(nMethodsClass);
+				System.out.print("|");
+				System.out.print(lineClass);
 				System.out.print("|");
 				System.out.print(cycloClass);
 				System.out.print("|");
