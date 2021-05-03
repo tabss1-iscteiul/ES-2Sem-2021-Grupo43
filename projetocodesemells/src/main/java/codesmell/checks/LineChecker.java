@@ -4,7 +4,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import codesmell.report.ReportEntry;
 
 public class LineChecker implements IChecker {
-	private static final String CHECKER_NAME = "LOC_class";
+	private static final String CHECKER_NAME = "LOC_class";// calculo das linhas de codigo da classe
 	
 	public ReportEntry check(CompilationUnit compilationUnit) {
 		

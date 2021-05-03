@@ -8,7 +8,7 @@ import codesmell.report.IReportEntry;
 import codesmell.report.ReportMultipleEntry;
 
 public class LineMethodChecker implements IChecker {
-	private static final String CHECKER_NAME = "LOC_method";
+	private static final String CHECKER_NAME = "LOC_method";// calculo de linhas de codigo do metodo sem as linhas de comentario
 
 	int result = 0;
 	String nameMethod = null;
