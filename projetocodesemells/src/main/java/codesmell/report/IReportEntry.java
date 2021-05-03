@@ -1,6 +1,6 @@
 package codesmell.report;
 
-public interface IReportEntry<T> { 
+public interface IReportEntry<T> { // permite que os métodos sejam implementados nas classes
 
 	public String getCheckerName();
 
