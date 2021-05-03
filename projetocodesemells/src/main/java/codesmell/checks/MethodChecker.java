@@ -4,7 +4,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import codesmell.report.ReportEntry;
 
-public class MethodChecker implements IChecker {
+public class MethodChecker implements IChecker {//numero de metodos da classe 
 	private static final String CHECKER_NAME = "NOM_class";
 
 	public ReportEntry check(CompilationUnit compilationUnit) {

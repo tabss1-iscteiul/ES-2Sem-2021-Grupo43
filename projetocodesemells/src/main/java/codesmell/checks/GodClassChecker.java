@@ -6,7 +6,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import codesmell.report.ReportArrayEntry;
 import codesmell.report.ReportEntry;
 
-public class GodClassChecker implements IChecker {
+public class GodClassChecker implements IChecker {//code smells para classes 
 
 	private int maxCyclomacy = 50;
 	private int maxNumberMethod = 10;

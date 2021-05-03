@@ -7,7 +7,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import codesmell.report.ReportArrayEntry;
 import codesmell.report.ReportMultipleEntry;
 
-public class LongMethodChecker implements IChecker {
+public class LongMethodChecker implements IChecker {//code smells para metodos
 	private CycloMethodChecker cycloMethod = new CycloMethodChecker();
 	private LineMethodChecker lineMethodChecker = new LineMethodChecker();
 
