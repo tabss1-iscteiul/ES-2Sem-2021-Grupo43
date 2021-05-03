@@ -132,7 +132,7 @@ public class ConsoleWriter implements IWriter {
 		return counterClasses;
 	}
 
-	public int counterLines(Report report) {
+	public int counterLinesByMethod(Report report) {
 		int countLines = 0;
 		int counterLineMethods = 0;
 		for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
@@ -151,8 +151,16 @@ public class ConsoleWriter implements IWriter {
 		return 0;
 	}
 	
-	public int counterMethods() {
-		return 0;
+	public int counterMethods(Report report) {
+		int countMethods =0;
+		for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
+			Map<String, String> cycloMethod = geCycloMethodFromEntries(item.getValue());
+			for (String cycloMethods : cycloMethod.keySet()) {
+				countMethods ++;
+				System.out.println("O numero de métodos é " + countMethods);
+			}
+		}
+		return countMethods;
 	}
 
 	/*
