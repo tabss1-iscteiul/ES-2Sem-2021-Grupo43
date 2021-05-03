@@ -4,7 +4,7 @@ import com.github.javaparser.ast.CompilationUnit;//ir ao interior da classe
 import com.github.javaparser.ast.stmt.Statement;//vê se é um if,while 
 import codesmell.report.ReportEntry;
 
-public class CycloChecker implements IChecker {
+public class CycloChecker implements IChecker {//complexidade ciclomática da classe
 
  //utilizacao da biblioteca javaparser - calculo de ifs,else etc...
 	private static final String CHECKER_NAME = "WMC_class";
