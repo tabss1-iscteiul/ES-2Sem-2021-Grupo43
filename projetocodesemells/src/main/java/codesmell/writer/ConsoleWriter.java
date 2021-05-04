@@ -11,11 +11,13 @@ import codesmell.report.ReportMultipleEntry;
 
 public class ConsoleWriter implements IWriter {
 	
+	private int counterClasses = 0;
+	private int countLines = 0;
+	private int countMethods =1;
 	//para escrever na consola do java para saber que esta a funcionar 
 	
 	@Override
 	public void write(Report report) {
-		// TODO Auto-generated method stub
 		int methodID = 0;
 		for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
 
@@ -122,7 +124,6 @@ public class ConsoleWriter implements IWriter {
 	}
 
 	public int counterClasses(Report report) {
-		int counterClasses = 0;
 		for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
 			String classes = item.getKey().getClassName();
 			counterClasses++;
@@ -133,7 +134,6 @@ public class ConsoleWriter implements IWriter {
 	}
 
 	public int counterLinesByMethod(Report report) {
-		int countLines = 0;
 		int counterLineMethods = 0;
 		for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
 			Map<String, String> lineMethods = geLineMethodFromEntries(item.getValue());
@@ -152,14 +152,12 @@ public class ConsoleWriter implements IWriter {
 	}
 	
 	public int counterMethods(Report report) {
-		int countMethods =1;
 		for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
 			Map<String, String> cycloMethod = geCycloMethodFromEntries(item.getValue());
 			for (String cycloMethods : cycloMethod.keySet()) {
 				countMethods ++;
 				System.out.println("O numero de métodos é " + countMethods);
 			}
-			
 		}
 		return countMethods;
 	}
