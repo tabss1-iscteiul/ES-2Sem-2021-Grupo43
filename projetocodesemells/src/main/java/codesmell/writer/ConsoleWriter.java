@@ -15,8 +15,8 @@ public class ConsoleWriter implements IWriter {
 	
 	private int counterClasses = 0;
 	private int countLines = 0;
-	private int countMethods =1;
-	private int counterPackages = 1;
+	private int countMethods =0;
+	private int counterPackages = 0;
 	//para escrever na consola do java para saber que esta a funcionar 
 	
 	@Override
@@ -130,7 +130,7 @@ public class ConsoleWriter implements IWriter {
 		for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
 			String classes = item.getKey().getClassName();
 			counterClasses++;
-			System.out.println("O nome da classe é " + classes + " o numero de classes é  " + counterClasses);
+			//System.out.println("O nome da classe é " + classes + " o numero de classes é  " + counterClasses);
 		}
 		return counterClasses;
 	}
@@ -142,7 +142,7 @@ public class ConsoleWriter implements IWriter {
 			for (String lineMethod : lineMethods.keySet()) {
 				counterLineMethods = Integer.valueOf(lineMethods.get(lineMethod));
 				countLines += counterLineMethods;
-				System.out.println("O numero de linhas por metodo por classe é " + counterLineMethods + " o total de linhas é " + countLines);
+				//System.out.println("O numero de linhas por metodo por classe é " + counterLineMethods + " o total de linhas é " + countLines);
 			}
 		}
 		return countLines;
@@ -155,7 +155,7 @@ public class ConsoleWriter implements IWriter {
 		}
 		for (String p : mapTest.keySet()){
 			counterPackages ++;
-			System.out.println("O nome dos packages é : " + p + " o seu valor é "+ counterPackages);
+			//System.out.println("O nome dos packages é : " + p + " o seu valor é "+ counterPackages);
 		}
 		
 		return counterPackages;
@@ -166,7 +166,7 @@ public class ConsoleWriter implements IWriter {
 			Map<String, String> cycloMethod = geCycloMethodFromEntries(item.getValue());
 			for (String cycloMethods : cycloMethod.keySet()) {
 				countMethods ++;
-				System.out.println("O numero de métodos é " + countMethods);
+				//System.out.println("O numero de métodos é " + countMethods);
 			}
 		}
 		return countMethods;

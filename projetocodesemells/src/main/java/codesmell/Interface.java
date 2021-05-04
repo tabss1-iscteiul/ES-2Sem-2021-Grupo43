@@ -289,11 +289,11 @@ public class Interface extends javax.swing.JFrame {
 						ExcelWriter writer = new ExcelWriter(jTextField2.getText());
 						Report report = reader.runCheckers(checkers);
 						writer.write(report);
-						cwriter.write(report);
-						jTextField9.setText("6");
-						jTextField11.setText("25");
-						jTextField13.setText("197");
-						jTextField10.setText("1190");
+						//cwriter.write(report);
+						jTextField9.setText(Integer.toString(((ConsoleWriter)cwriter).counterPackages(report)));
+						jTextField11.setText(Integer.toString(((ConsoleWriter)cwriter).counterClasses(report)));
+						jTextField13.setText(Integer.toString(((ConsoleWriter)cwriter).counterMethods(report)));
+						jTextField10.setText(Integer.toString(((ConsoleWriter)cwriter).counterLinesByMethod(report)));
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
