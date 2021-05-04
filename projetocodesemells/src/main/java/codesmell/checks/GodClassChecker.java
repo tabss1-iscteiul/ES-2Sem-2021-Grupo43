@@ -11,6 +11,8 @@ public class GodClassChecker implements IChecker {//code smells para classes
 	private int maxCyclomacy = 50;
 	private int maxNumberMethod = 10;
 	private int maxNumberLinesCode = 500;
+	private String regra1;
+	private String regra2;
 
 	private CycloChecker cycloChecker = new CycloChecker();
 	private MethodChecker methodChecker = new MethodChecker();
@@ -26,10 +28,12 @@ public class GodClassChecker implements IChecker {//code smells para classes
 		this.maxNumberMethod = maxNumberMethod;
 	}
 	
-	public GodClassChecker(int maxCyclomacy, int maxNumberMethod, int maxNumberLinesCode) {
+	public GodClassChecker(int maxNumberMethod,int maxNumberLinesCode, int maxCyclomacy, String regra1, String regra2  ) {
 		this.maxCyclomacy = maxCyclomacy;
 		this.maxNumberMethod = maxNumberMethod;
 		this.maxNumberLinesCode = maxNumberLinesCode;
+		this.regra1=regra1;
+		this.regra2=regra2;
 	}
 
 	public ReportArrayEntry check(CompilationUnit compilationUnit) {
@@ -38,13 +42,58 @@ public class GodClassChecker implements IChecker {//code smells para classes
 		ReportEntry methodResult = methodChecker.check(compilationUnit);
 		ReportEntry lineResult = lineChecker.check(compilationUnit);
 
-		ReportEntry godClassResult;
-		if (Integer.valueOf(cycloResult.getCheckerValue()) > maxCyclomacy
-				&& Integer.valueOf(methodResult.getCheckerValue()) > maxNumberMethod  
-				&& Integer.valueOf(lineResult.getCheckerValue())> maxNumberLinesCode) {
-			godClassResult = new ReportEntry(CHECKER_NAME, "true");
-		} else {
-			godClassResult = new ReportEntry(CHECKER_NAME, "false");
+		ReportEntry godClassResult = new ReportEntry(CHECKER_NAME, CHECKER_NAME);
+		
+		if(regra1=="AND" && regra2== "AND") {
+			
+			if (Integer.valueOf(cycloResult.getCheckerValue()) > maxCyclomacy
+					&& Integer.valueOf(methodResult.getCheckerValue()) > maxNumberMethod  
+					&& Integer.valueOf(lineResult.getCheckerValue())> maxNumberLinesCode) {
+				godClassResult = new ReportEntry(CHECKER_NAME, "true");
+			} else {
+				godClassResult = new ReportEntry(CHECKER_NAME, "false");
+			}
+			
+		}
+		if(regra1=="AND" && regra2== "OR") {	
+			
+			if ((Integer.valueOf(methodResult.getCheckerValue()) > maxNumberMethod 
+					&& Integer.valueOf(lineResult.getCheckerValue())> maxNumberLinesCode)
+					|| Integer.valueOf(cycloResult.getCheckerValue()) > maxCyclomacy
+					  
+					 ) {
+				godClassResult = new ReportEntry(CHECKER_NAME, "true");
+			} else {
+				godClassResult = new ReportEntry(CHECKER_NAME, "false");
+			}
+			
+		}
+		if(regra1=="OR" && regra2== "AND") {	
+			
+			if (Integer.valueOf(methodResult.getCheckerValue()) > maxNumberMethod 
+					|| (Integer.valueOf(lineResult.getCheckerValue())> maxNumberLinesCode
+					&& Integer.valueOf(cycloResult.getCheckerValue()) > maxCyclomacy)
+					  
+					 ) {
+				
+				godClassResult = new ReportEntry(CHECKER_NAME, "true");
+			} else {
+				godClassResult = new ReportEntry(CHECKER_NAME, "false");
+			}
+			
+		}
+		if(regra1=="OR" && regra2== "OR") {	
+			
+			if (Integer.valueOf(methodResult.getCheckerValue()) > maxNumberMethod 
+					|| Integer.valueOf(lineResult.getCheckerValue())> maxNumberLinesCode
+					|| Integer.valueOf(cycloResult.getCheckerValue()) > maxCyclomacy
+					  
+					 ) {
+				godClassResult = new ReportEntry(CHECKER_NAME, "true");
+			} else {
+				godClassResult = new ReportEntry(CHECKER_NAME, "false");
+			}
+			
 		}
 		ReportArrayEntry result = new ReportArrayEntry();
 		result.addReportEntry(cycloResult);

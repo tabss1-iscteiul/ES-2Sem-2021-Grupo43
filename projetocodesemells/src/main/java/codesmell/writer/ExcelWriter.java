@@ -105,7 +105,7 @@ public class ExcelWriter implements IWriter {//igual ao console writer, mas escr
 			
 			//alteracoes
 			
-			String mypath = this.path.concat("\\CodeSmells.xls");
+			String mypath = this.path.concat("\\jasml_0.10_metrics.xls");
 
 			FileOutputStream fileOut = new FileOutputStream(mypath);
 

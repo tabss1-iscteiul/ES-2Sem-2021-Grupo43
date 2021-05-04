@@ -13,15 +13,17 @@ public class LongMethodChecker implements IChecker {//code smells para metodos
 
 	private int lineCodeMethod = 50;
 	private int maxCiclomacyMethod = 10;
-
+	private String regra3;
+	
 	private static final String CHECKER_NAME = "Long_Method";
 
 	public LongMethodChecker() {
 	}
 
-	public LongMethodChecker(int lineCodeMethod, int maxCiclomacyMethod) {
+	public LongMethodChecker(int lineCodeMethod, int maxCiclomacyMethod, String regra3) {
 		this.lineCodeMethod = lineCodeMethod;
 		this.maxCiclomacyMethod = maxCiclomacyMethod;
+		this.regra3=regra3;
 	}
 
 	public ReportArrayEntry check(CompilationUnit compilationUnit) {
@@ -37,12 +39,24 @@ public class LongMethodChecker implements IChecker {//code smells para metodos
 			String cycloResultForMethod = cycloResultMap.get(methodName);
 			String lineMethodResultForMethod = lineMethodResultMap.get(methodName);
 
-			if (Integer.valueOf(lineMethodResultForMethod) > lineCodeMethod
-					&& Integer.valueOf(cycloResultForMethod) > maxCiclomacyMethod) {
-				longMethodResult.addEntry(methodName, "true");
-			} else {
-				longMethodResult.addEntry(methodName, "false");
+			if (regra3 == "AND") {
+				if (Integer.valueOf(lineMethodResultForMethod) > lineCodeMethod
+						&& Integer.valueOf(cycloResultForMethod) > maxCiclomacyMethod) {
+					longMethodResult.addEntry(methodName, "true");
+				} else {
+					longMethodResult.addEntry(methodName, "false");
+				}
 			}
+			
+			if (regra3 == "OR") {
+				if (Integer.valueOf(lineMethodResultForMethod) > lineCodeMethod
+						|| Integer.valueOf(cycloResultForMethod) > maxCiclomacyMethod) {
+					longMethodResult.addEntry(methodName, "true");
+				} else {
+					longMethodResult.addEntry(methodName, "false");
+				}
+			}
+
 		}
 		ReportArrayEntry result = new ReportArrayEntry();
 		result.addReportEntry(cycloResult);
