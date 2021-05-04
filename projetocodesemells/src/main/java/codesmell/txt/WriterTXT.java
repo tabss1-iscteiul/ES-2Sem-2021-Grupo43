@@ -8,18 +8,18 @@ public class WriterTXT {
 
 	public void write (int nomC, String regra1, int locC, String regra2, int wmcC, int locM, String regra3, int cycloM) {
 		 try {
-		      FileWriter myWriter = new FileWriter("C:\\Users\\ana_r\\Desktop\\filename.txt"); //indicar depois o caminho
-		      myWriter.write(nomC + "\n");
-		      myWriter.write(regra1 + "\n");
-		      myWriter.write(locC + "\n");
-		      myWriter.write(regra2 + "\n");
-		      myWriter.write(wmcC + "\n");
+		      FileWriter writeTXT = new FileWriter("C:\\Users\\ana_r\\Desktop\\filename.txt"); //indicar depois o caminho
+		      writeTXT.write(nomC + "\n");
+		      writeTXT.write(regra1 + "\n");
+		      writeTXT.write(locC + "\n");
+		      writeTXT.write(regra2 + "\n");
+		      writeTXT.write(wmcC + "\n");
 		      
 		      
-		      myWriter.write(locM +  "\n");
-		      myWriter.write(regra3 + "\n");
-		      myWriter.write(cycloM +  "\n");
-		      myWriter.close();
+		      writeTXT.write(locM +  "\n");
+		      writeTXT.write(regra3 + "\n");
+		      writeTXT.write(cycloM +  "\n");
+		      writeTXT.close();
 		      
 		      System.out.println("Successfully wrote to the file.");
 		    } catch (IOException e) {
