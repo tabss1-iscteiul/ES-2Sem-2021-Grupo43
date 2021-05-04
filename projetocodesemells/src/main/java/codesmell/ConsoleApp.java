@@ -36,11 +36,11 @@ public class ConsoleApp {
 
 		Report report = reader.runCheckers(checkers);
 		//writer.write(report);
-		//cwriter.write(report);
+		cwriter.write(report);
 		((ConsoleWriter)cwriter).counterClasses(report);
-		((ConsoleWriter)cwriter).counterLinesByMethod(report);
-		((ConsoleWriter)cwriter).counterMethods(report);
-		
+		//((ConsoleWriter)cwriter).counterLinesByMethod(report);
+		//((ConsoleWriter)cwriter).counterMethods(report);
+		//((ConsoleWriter)cwriter).counterPackages(report);
 		
 	}
 	

@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.collections4.map.HashedMap;
+
 import codesmell.report.IReportEntry;
 import codesmell.report.Report;
 import codesmell.report.ReportEntry;
@@ -14,6 +16,7 @@ public class ConsoleWriter implements IWriter {
 	private int counterClasses = 0;
 	private int countLines = 0;
 	private int countMethods =1;
+	private int counterPackages = 1;
 	//para escrever na consola do java para saber que esta a funcionar 
 	
 	@Override
@@ -128,7 +131,6 @@ public class ConsoleWriter implements IWriter {
 			String classes = item.getKey().getClassName();
 			counterClasses++;
 			System.out.println("O nome da classe é " + classes + " o numero de classes é  " + counterClasses);
-
 		}
 		return counterClasses;
 	}
@@ -146,9 +148,17 @@ public class ConsoleWriter implements IWriter {
 		return countLines;
 	}
 	
-	public int counterPackages() {
+	public int counterPackages(Report report) {
+		Map<String, String> mapTest = new HashedMap<String, String>(); 
+		for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
+			mapTest.put(item.getKey().getPackageName(), item.getKey().getClassName());
+		}
+		for (String p : mapTest.keySet()){
+			counterPackages ++;
+			System.out.println("O nome dos packages é : " + p + " o seu valor é "+ counterPackages);
+		}
 		
-		return 0;
+		return counterPackages;
 	}
 	
 	public int counterMethods(Report report) {
