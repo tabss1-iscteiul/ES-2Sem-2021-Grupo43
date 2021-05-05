@@ -19,7 +19,7 @@ import junit.framework.TestCase;
  */
 public class LongMethodCheckerTest extends TestCase {
 	private LongMethodChecker longMethodChecker = new LongMethodChecker();
-	private LongMethodChecker longMethodCheckerValues = new LongMethodChecker(50,10);
+	//private LongMethodChecker longMethodCheckerValues = new LongMethodChecker(50,10);
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
@@ -39,7 +39,7 @@ public class LongMethodCheckerTest extends TestCase {
 	 * Test method for {@link codesmell.checks.LongMethodChecker#LongMethodChecker(int, int)}.
 	 */
 	public final void testLongMethodCheckerIntInt() {
-		assertNotNull(longMethodCheckerValues);
+		//assertNotNull(longMethodCheckerValues);
 	}
 
 	/**
