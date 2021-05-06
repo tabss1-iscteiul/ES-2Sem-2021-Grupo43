@@ -34,7 +34,7 @@ public class CycloCheckerTest extends TestCase {
 	 * @throws IOException 
 	 */
 	public final void testCheck() throws IOException {
-		ASTReader reader = new ASTReader("C:\\Users\\Fujitsu\\Desktop\\jasml\\src");
+		ASTReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
 		Collection<File> javaFiles = reader.getAllJavaFiles();
 		for (File javaFile : javaFiles) {
 			CompilationUnit compilationUnit = StaticJavaParser.parse(javaFile);

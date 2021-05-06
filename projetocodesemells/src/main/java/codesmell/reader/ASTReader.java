@@ -37,7 +37,6 @@ public class ASTReader implements IReader { // scanner
 		return p.toString().endsWith(".java");
 	}
 
-	private int countClasses =0;
 	public Report runCheckers(Collection<IChecker> checkers) throws IOException {  // criação do compilationUnit para cada file
 		Collection<File> javaFiles = getAllJavaFiles();
 		Report report = new Report();
@@ -46,20 +45,11 @@ public class ASTReader implements IReader { // scanner
 			CompilationUnit compilationUnit = StaticJavaParser.parse(javaFile); // criação de cada compilationUnit para cada classe - recebe java file
 			String packageName = compilationUnit.getPackageDeclaration().map(p -> p.getNameAsString()).orElse(""); // percorre cada package e dá o nome de cada um
 			String className = javaFile.getName().replaceAll(".java", ""); // dá o nome da classe - substitui .java por " "
-			countClasses ++;
 			Report.ReportID reportID = new Report.ReportID(packageName, className);
 			for( IChecker checker : checkers ) {
 				report.addReportEntries(reportID, checker.check(compilationUnit));		
 			}
 		}
 		return report;
-	}
-	
-	public int getTotalClasses() {
-		return countClasses;
-	}
-	
-	public int getTotalPackages() {
-		return 0;
 	}
 }
