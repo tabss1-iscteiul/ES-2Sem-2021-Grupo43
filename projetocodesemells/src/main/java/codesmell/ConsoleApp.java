@@ -22,23 +22,22 @@ import codesmell.writer.IWriter;
 public class ConsoleApp {
 
 	public static void main(String[] args) throws IOException {
-		
 		// Setup components
 		Collection<IChecker> checkers = Arrays.asList( 
 			new LineChecker(), 
 			new MethodChecker(), 
 			new CycloChecker(), 
 			new CycloMethodChecker(),
-			new LineMethodChecker(), new GodClassChecker(), new LongMethodChecker());
+			new LineMethodChecker(), new GodClassChecker(50, 150, 70, "AND", "OR" ), new LongMethodChecker(40, 60, "AND"));
 		IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
 		IWriter cwriter = new ConsoleWriter();
 		//IWriter writer = new ExcelWriter();
 
 		Report report = reader.runCheckers(checkers);
 		//writer.write(report);
-		cwriter.write(report);
-		((ConsoleWriter)cwriter).counterClasses(report);
-		//((ConsoleWriter)cwriter).counterLinesByMethod(report);
+		//cwriter.write(report);
+		//((ConsoleWriter)cwriter).counterClasses(report);
+		((ConsoleWriter)cwriter).counterLinesByMethod(report);
 		//((ConsoleWriter)cwriter).counterMethods(report);
 		//((ConsoleWriter)cwriter).counterPackages(report);
 		

@@ -69,59 +69,40 @@ public class ConsoleWriter implements IWriter {
 				}
 				System.out.print("|");
 			}
-
-			/*
-			 * for (IReportEntry<?> e : item.getValue()) { if(e.isMultiEntry()) {
-			 * ReportMultipleEntry me = (ReportMultipleEntry)e; for
-			 * (ReportMultipleEntry.Entry en : me.getCheckerValue()) {
-			 * System.out.printf("\t Report [%15s]: %15s - - %3s\n", e.getCheckerName(),
-			 * en.getName(), en.getValue());
-			 * 
-			 * } }else { System.out.printf("\t Report [%15s]: %3s\n", e.getCheckerName(),
-			 * e.getCheckerValue()); } } System.out.println("");
-			 */
-
 		}
 	}
 
-	public/* private */ int getlineClassFromEntries(List<IReportEntry<?>> value) {
+	private  int getlineClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("LOC_class")).findFirst()
 				.map(e -> Integer.valueOf(((ReportEntry) e).getCheckerValue())).orElse(0);
 	}
 
-	public /* private */ int getCycloClassFromEntries(List<IReportEntry<?>> value) {
+	private int getCycloClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("WMC_class")).findFirst()
 				.map(e -> Integer.valueOf(((ReportEntry) e).getCheckerValue())).orElse(0);
 	}
 
-	public/* private */ int getNumberMethodsClassFromEntries(List<IReportEntry<?>> value) {
+	private int getNumberMethodsClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("NOM_class")).findFirst()
 				.map(e -> Integer.valueOf(((ReportEntry) e).getCheckerValue())).orElse(0);
 	}
 
-	/*
-	 * private boolean geIsGodClassFromEntries(List<IReportEntry<?>> value) { return
-	 * value.stream(). filter( e -> e.getCheckerName().equals("God_class") ).
-	 * findFirst(). map( e ->
-	 * Boolean.getBoolean(((ReportEntry)e).getCheckerValue())). orElse(false); }
-	 */
-
-	public /* private */ Map<String, String> geCycloMethodFromEntries(List<IReportEntry<?>> value) {
+	private Map<String, String> geCycloMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("CYCLO_method")).findFirst()
 				.map(e -> ((ReportMultipleEntry) e).getCheckerValueAsMap()).orElse(Collections.emptyMap());
 	}
 
-	public /* private */ Map<String, String> geLineMethodFromEntries(List<IReportEntry<?>> value) {
+	private Map<String, String> geLineMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("LOC_method")).findFirst()
 				.map(e -> ((ReportMultipleEntry) e).getCheckerValueAsMap()).orElse(Collections.emptyMap());
 	}
 
-	public /* private */ Map<String, String> geLongMethodFromEntries(List<IReportEntry<?>> value) {
+	private Map<String, String> geLongMethodFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("Long_Method")).findFirst()
 				.map(e -> ((ReportMultipleEntry) e).getCheckerValueAsMap()).orElse(Collections.emptyMap());
 	}
 
-	public /* private */ String geIsGodClassFromEntries(List<IReportEntry<?>> value) {
+	private String geIsGodClassFromEntries(List<IReportEntry<?>> value) {
 		return value.stream().filter(e -> e.getCheckerName().equals("God_class")).findFirst()
 				.map(e -> (((ReportEntry) e).getCheckerValue())).get();
 	}
@@ -130,7 +111,6 @@ public class ConsoleWriter implements IWriter {
 		for (Map.Entry<Report.ReportID, List<IReportEntry<?>>> item : report.getReport().entrySet()) {
 			String classes = item.getKey().getClassName();
 			counterClasses++;
-			//System.out.println("O nome da classe é " + classes + " o numero de classes é  " + counterClasses);
 		}
 		return counterClasses;
 	}
@@ -142,9 +122,9 @@ public class ConsoleWriter implements IWriter {
 			for (String lineMethod : lineMethods.keySet()) {
 				counterLineMethods = Integer.valueOf(lineMethods.get(lineMethod));
 				countLines += counterLineMethods;
-				//System.out.println("O numero de linhas por metodo por classe é " + counterLineMethods + " o total de linhas é " + countLines);
 			}
 		}
+		System.out.println(countLines);
 		return countLines;
 	}
 	
@@ -155,9 +135,8 @@ public class ConsoleWriter implements IWriter {
 		}
 		for (String p : mapTest.keySet()){
 			counterPackages ++;
-			//System.out.println("O nome dos packages é : " + p + " o seu valor é "+ counterPackages);
+			
 		}
-		
 		return counterPackages;
 	}
 	
@@ -166,7 +145,6 @@ public class ConsoleWriter implements IWriter {
 			Map<String, String> cycloMethod = geCycloMethodFromEntries(item.getValue());
 			for (String cycloMethods : cycloMethod.keySet()) {
 				countMethods ++;
-				//System.out.println("O numero de métodos é " + countMethods);
 			}
 		}
 		return countMethods;
