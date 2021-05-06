@@ -5,15 +5,46 @@
  */
 package codesmell;
 
+import java.awt.BorderLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
-import javax.swing.JFileChooser;
+import javax.swing.table.DefaultTableModel;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Row;
 
+
+
+
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+
+import org.apache.poi.util.SystemOutLogger;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 import codesmell.checks.CycloChecker;
@@ -100,6 +131,13 @@ public class Interface extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
         jTabbedPane2 = new javax.swing.JTabbedPane();
+        
+      
+        
+        
+        
+        
+        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -325,7 +363,7 @@ public class Interface extends javax.swing.JFrame {
         });
         
         
-        
+       
         jButton9.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){ 
 					try {	
@@ -345,11 +383,120 @@ public class Interface extends javax.swing.JFrame {
 						jTextField11.setText(Integer.toString(((ConsoleWriter)cwriter).counterClasses(report)));
 						jTextField13.setText(Integer.toString(((ConsoleWriter)cwriter).counterMethods(report)));
 						jTextField10.setText(Integer.toString(((ConsoleWriter)cwriter).counterLinesByMethod(report)));
+						
+						
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+					};
+					
+					//criacao de JTable
+					
+					File excelFile;
+					FileInputStream excelFIS= null;
+					BufferedInputStream excelBIS=null;
+					HSSFWorkbook excelJtable= null;
+					DefaultTableModel model =new DefaultTableModel();
+					JTable table= new JTable(model);
+					table.setShowGrid(true);
+					table.setShowHorizontalLines(true);
+					table.setShowVerticalLines(true);
+					JScrollPane scroll= new JScrollPane(table,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+					scroll.setVisible(true);
+					
+					
+					
+					
+					Object[] newIdentifiers= new Object[]{"MethodID","package","class","method","NOM_class","LOC_class","WMC_Class","is_God_Class","LOC_Method","Cyclo_Method","is_Long_Method"};
+					model.setColumnIdentifiers(newIdentifiers);
+					
+					
+					String caminho = jTextField2.getText();
+					JFileChooser excelFileChooser= new JFileChooser(caminho);
+					int excelChooser= excelFileChooser.showOpenDialog(null);
+					
+					//importacao do excel
+					if (excelChooser== JFileChooser.APPROVE_OPTION) {
+						
+						try {
+							excelFile= excelFileChooser.getSelectedFile();
+							excelFIS = new FileInputStream(excelFile);
+							excelBIS= new BufferedInputStream(excelFIS);
+							excelJtable= new HSSFWorkbook(excelBIS);
+							HSSFSheet sheet= excelJtable.getSheetAt(0);
+							for(int row=0; row < sheet.getLastRowNum();row++) {
+								HSSFRow excelRow =sheet.getRow(row);
+								HSSFCell excelMethodID = excelRow.getCell(0);
+								HSSFCell excelPackage=excelRow.getCell(1);
+								HSSFCell excelclass = excelRow.getCell(2);
+								HSSFCell excelmethod=excelRow.getCell(3);
+								HSSFCell excelNomClass=excelRow.getCell(4);
+								HSSFCell excelLocClass=excelRow.getCell(5);
+								HSSFCell excelWMCClass=excelRow.getCell(6);
+								HSSFCell excelIsGodClass=excelRow.getCell(7);
+								HSSFCell excelLocMethod=excelRow.getCell(8);
+								HSSFCell excelCycloMethod=excelRow.getCell(9);
+								HSSFCell excelisLongMethod=excelRow.getCell(10);
+							
+								System.out.println(excelMethodID);
+								System.out.println(excelPackage);
+								System.out.println(excelclass);
+								System.out.println(excelmethod);
+								System.out.println(excelNomClass);
+								System.out.println(excelLocClass);
+								System.out.println(excelWMCClass);
+								System.out.println(excelIsGodClass);
+								System.out.println(excelLocMethod);
+								System.out.println(excelCycloMethod);
+								System.out.println(excelisLongMethod);
+								
+								
+								
+								
+								model.addRow(new Object[] {excelMethodID,excelPackage,excelclass,excelmethod,excelNomClass,excelLocClass,excelWMCClass,excelIsGodClass,excelLocMethod,excelCycloMethod,excelisLongMethod});
+								
+							}
+							jTabbedPane2.add(scroll);
+						
+						} catch (FileNotFoundException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} finally {
+							if (excelFIS != null) {
+								try {
+									excelFIS.close();
+								} catch (IOException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							if (excelBIS != null) {
+								try {
+									excelBIS.close();
+								} catch (IOException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+							if (excelJtable != null) {
+								try {
+									excelJtable.close();
+								} catch (IOException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							}
+
+
+						}
+						
 					}
-        			;
+        	
+        	
+        	
         	}
         });
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
