@@ -318,7 +318,7 @@ public class Interface extends javax.swing.JFrame {
 						e1.printStackTrace();
 					};
 					
-					//criacao de JTable 
+					//criacao de JTable
 					
 					File excelFile;
 					FileInputStream excelFIS= null;
@@ -343,7 +343,7 @@ public class Interface extends javax.swing.JFrame {
 					JFileChooser excelFileChooser= new JFileChooser(caminho);
 					int excelChooser= excelFileChooser.showOpenDialog(null);
 					
-					
+					//importacao do excel
 					if (excelChooser== JFileChooser.APPROVE_OPTION) {
 						
 						try {
