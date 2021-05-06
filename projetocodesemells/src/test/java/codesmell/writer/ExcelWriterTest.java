@@ -3,6 +3,8 @@
  */
 package codesmell.writer;
 
+import junit.framework.TestCase;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
@@ -25,14 +27,21 @@ import junit.framework.TestCase;
  *
  */
 public class ExcelWriterTest extends TestCase {
-
-	//private ExcelWriter excelWriter = new ExcelWriter("C:\\Users\\TOSHIBA\\Documents\\teste");
+	private ExcelWriter excel = new ExcelWriter("C:\\Users\\TOSHIBA\\Documents\\teste");
+	
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
 
 	protected void tearDown() throws Exception {
 		super.tearDown();
+	}
+
+	/**
+	 * Test method for {@link codesmell.writer.ExcelWriter#ExcelWriter(java.lang.String)}.
+	 */
+	public final void testExcelWriter() {
+		assertNotNull(excel);
 	}
 
 	/**
@@ -45,10 +54,9 @@ public class ExcelWriterTest extends TestCase {
 				new MethodChecker(), 
 				new CycloChecker(), 
 				new CycloMethodChecker(),
-				new LineMethodChecker(), new GodClassChecker(), new LongMethodChecker());
+				new LineMethodChecker(), new GodClassChecker(50, 150, 70, "AND", "OR" ), new LongMethodChecker(40, 60, "AND"));
 			IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
 			Report report = reader.runCheckers(checkers);
-			//excelWriter.write(report);
+			excel.write(report);
 	}
-
 }
