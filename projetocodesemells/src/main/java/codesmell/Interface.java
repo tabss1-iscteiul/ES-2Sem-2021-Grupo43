@@ -14,7 +14,7 @@ import java.util.Collection;
 
 import javax.swing.JFileChooser;
 
-import org.apache.poi.util.SystemOutLogger;
+
 
 import codesmell.checks.CycloChecker;
 import codesmell.checks.CycloMethodChecker;
@@ -37,6 +37,10 @@ import codesmell.writer.IWriter;
  */
 public class Interface extends javax.swing.JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String regra1;
 	private String regra2;
 	private String regra3;
@@ -56,7 +60,7 @@ public class Interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+       
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jTextField9 = new javax.swing.JTextField();
@@ -188,17 +192,50 @@ public class Interface extends javax.swing.JFrame {
 
         jButton2.setText("Path");
         jButton2.setName("PathDestinyButton"); // NOI18N
-
+        
+        
         jButton3.setText("Carregar Regras");
         jButton3.setMaximumSize(new java.awt.Dimension(105, 23));
         jButton3.setMinimumSize(new java.awt.Dimension(105, 23));
         jButton3.setPreferredSize(new java.awt.Dimension(120, 23));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+            	codesmell.txt.ReaderTXT ler= new codesmell.txt.ReaderTXT();
+            	String caminho=jTextField2.getText();
+            	String caminho2=caminho.replaceAll("\\\\", "\\\\\\\\");
+            	System.out.println(caminho2.concat("\\\\Regras_Guardadas.txt"));
+            	ler.readFile(caminho2.concat("\\\\Regras_Guardadas.txt"));
+            	jTextField3.setText(String.valueOf(ler.nomC));
+            	jTextField4.setText(String.valueOf(ler.locC));
+            	jTextField5.setText(String.valueOf(ler.wmcC));
+            	jTextField6.setText(String.valueOf(ler.locM));
+            	jTextField7.setText(String.valueOf(ler.cycloM));
+            	if(ler.regra1.equals("AND")) {
+            		jComboBox1.setSelectedIndex(1);
+            	}
+            	if(ler.regra1.equals("OR")) {
+            		jComboBox1.setSelectedIndex(2);
+            	}
+            	if(ler.regra2.equals("AND")) {
+            		jComboBox2.setSelectedIndex(1);
+            	}
+            	if(ler.regra2.equals("OR")) {
+            		jComboBox2.setSelectedIndex(2);
+            	}
+            	if(ler.regra3.equals("AND")) {
+            		jComboBox3.setSelectedIndex(1);
+            	}
+            	if(ler.regra3.equals("OR")) {
+            		jComboBox3.setSelectedIndex(2);
+            	}
+            	
+            	
+                
             }
         });
 
+        
+        
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Editor de Regras");
 
@@ -206,7 +243,22 @@ public class Interface extends javax.swing.JFrame {
         jButton4.setMaximumSize(new java.awt.Dimension(109, 23));
         jButton4.setMinimumSize(new java.awt.Dimension(109, 23));
         jButton4.setPreferredSize(new java.awt.Dimension(120, 23));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	codesmell.txt.WriterTXT escrever= new codesmell.txt.WriterTXT();
+            	String caminho=jTextField2.getText();
+            	String caminho2=caminho.replaceAll("\\\\", "\\\\\\\\");
 
+            	escrever.write(Integer.parseInt(jTextField3.getText()), regra1, Integer.parseInt(jTextField4.getText()), regra2, Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField6.getText()), regra3, 
+            								Integer.parseInt(jTextField7.getText()),caminho2.concat("\\Regras_Guardadas.txt"));
+            	
+            	
+            	
+            	
+            	
+            }
+            
+        });
         jLabel4.setText("NOM_CLASS");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -223,7 +275,25 @@ public class Interface extends javax.swing.JFrame {
         jButton5.setMaximumSize(new java.awt.Dimension(110, 23));
         jButton5.setMinimumSize(new java.awt.Dimension(110, 23));
         jButton5.setPreferredSize(new java.awt.Dimension(120, 23));
+        jButton5.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		jTextField3.setText("");
+        		jTextField4.setText("");
+        		jTextField5.setText("");
+        		jTextField6.setText("");
+        		jTextField7.setText("");
+        		jComboBox1.setSelectedIndex(0);
+        		jComboBox2.setSelectedIndex(0);
+        		jComboBox3.setSelectedIndex(0);
+        	}
 
+        	
+        	
+        	
+        	
+        	
+        });
         jButton9.setBackground(new java.awt.Color(255, 255, 255));
         jButton9.setForeground(new java.awt.Color(0, 51, 51));
         jButton9.setText("Ficheiro Excel");
@@ -617,7 +687,7 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.ButtonGroup buttonGroup1;
+    
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
