@@ -424,7 +424,7 @@ public class Interface extends javax.swing.JFrame {
 							excelBIS= new BufferedInputStream(excelFIS);
 							excelJtable= new HSSFWorkbook(excelBIS);
 							HSSFSheet sheet= excelJtable.getSheetAt(0);
-							for(int row=0; row < sheet.getLastRowNum();row++) {
+							for(int row=0; row <= sheet.getLastRowNum();row++) {
 								HSSFRow excelRow =sheet.getRow(row);
 								HSSFCell excelMethodID = excelRow.getCell(0);
 								HSSFCell excelPackage=excelRow.getCell(1);
