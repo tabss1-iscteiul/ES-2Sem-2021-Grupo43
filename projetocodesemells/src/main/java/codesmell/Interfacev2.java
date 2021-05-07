@@ -26,9 +26,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 
-
-
-
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -39,13 +36,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-
 import org.apache.poi.util.SystemOutLogger;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 
 import codesmell.checks.CycloChecker;
 import codesmell.checks.CycloMethodChecker;
@@ -62,11 +57,7 @@ import codesmell.writer.ConsoleWriter;
 import codesmell.writer.ExcelWriter;
 import codesmell.writer.IWriter;
 
-/**
- *
- * @author imcco
- */
-public class Interface extends javax.swing.JFrame {
+public class Interfacev2 extends javax.swing.JFrame {
 
 	/**
 	 * 
@@ -78,7 +69,7 @@ public class Interface extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public Interface() {
+    public Interfacev2() {
         initComponents();
     }
 
@@ -132,13 +123,6 @@ public class Interface extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox<>();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         
-      
-        
-        
-        
-        
-        
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTextField9.setName("caminhoPasta"); // NOI18N
@@ -223,15 +207,14 @@ public class Interface extends javax.swing.JFrame {
         jTextField2.setText("caminho do destino");
         jTextField2.setName("caminhoDestino"); // NOI18N
 
-        jButton1.setText("Path");
+        jButton1.setText("Path"); 
         jButton1.setName("PathFolderButton"); // NOI18N
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jButton2.setText("Path");
         jButton2.setName("PathDestinyButton"); // NOI18N
-        
-        
+           
         jButton3.setText("Carregar Regras");
         jButton3.setMaximumSize(new java.awt.Dimension(105, 23));
         jButton3.setMinimumSize(new java.awt.Dimension(105, 23));
@@ -266,14 +249,10 @@ public class Interface extends javax.swing.JFrame {
             	if(ler.regra3.equals("OR")) {
             		jComboBox3.setSelectedIndex(2);
             	}
-            	
-            	
-                
+        
             }
         });
-
-        
-        
+   
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Editor de Regras");
 
@@ -288,11 +267,7 @@ public class Interface extends javax.swing.JFrame {
             	String caminho2=caminho.replaceAll("\\\\", "\\\\\\\\");
 
             	escrever.write(Integer.parseInt(jTextField3.getText()), regra1, Integer.parseInt(jTextField4.getText()), regra2, Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField6.getText()), regra3, 
-            								Integer.parseInt(jTextField7.getText()),caminho2.concat("\\Regras_Guardadas.txt"));
-            	
-            	
-            	
-            	
+            								Integer.parseInt(jTextField7.getText()),caminho2.concat("\\Regras_Guardadas.txt"));   	
             	
             }
             
@@ -325,13 +300,8 @@ public class Interface extends javax.swing.JFrame {
         		jComboBox2.setSelectedIndex(0);
         		jComboBox3.setSelectedIndex(0);
         	}
-
-        	
-        	
-        	
-        	
-        	
         });
+        
         jButton9.setBackground(new java.awt.Color(255, 255, 255));
         jButton9.setForeground(new java.awt.Color(0, 51, 51));
         jButton9.setText("Ficheiro Excel");
@@ -362,8 +332,7 @@ public class Interface extends javax.swing.JFrame {
         	}
         });
         
-        
-       
+
         jButton9.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){ 
 					try {	
@@ -378,6 +347,7 @@ public class Interface extends javax.swing.JFrame {
 						ExcelWriter writer = new ExcelWriter(jTextField2.getText());
 						Report report = reader.runCheckers(checkers);
 						writer.write(report);
+						
 						//cwriter.write(report);
 						jTextField9.setText(Integer.toString(((ConsoleWriter)cwriter).counterPackages(report)));
 						jTextField11.setText(Integer.toString(((ConsoleWriter)cwriter).counterClasses(report)));
@@ -391,7 +361,6 @@ public class Interface extends javax.swing.JFrame {
 					};
 					
 					//criacao de JTable
-					
 					File excelFile;
 					FileInputStream excelFIS= null;
 					BufferedInputStream excelBIS=null;
@@ -403,9 +372,7 @@ public class Interface extends javax.swing.JFrame {
 					table.setShowVerticalLines(true);
 					JScrollPane scroll= new JScrollPane(table,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 					scroll.setVisible(true);
-					
-					
-					
+			
 					
 					Object[] newIdentifiers= new Object[]{"MethodID","package","class","method","NOM_class","LOC_class","WMC_Class","is_God_Class","LOC_Method","Cyclo_Method","is_Long_Method"};
 					model.setColumnIdentifiers(newIdentifiers);
@@ -449,10 +416,7 @@ public class Interface extends javax.swing.JFrame {
 								System.out.println(excelLocMethod);
 								System.out.println(excelCycloMethod);
 								System.out.println(excelisLongMethod);
-								
-								
-								
-								
+									
 								model.addRow(new Object[] {excelMethodID,excelPackage,excelclass,excelmethod,excelNomClass,excelLocClass,excelWMCClass,excelIsGodClass,excelLocMethod,excelCycloMethod,excelisLongMethod});
 								
 							}
@@ -489,14 +453,8 @@ public class Interface extends javax.swing.JFrame {
 									e1.printStackTrace();
 								}
 							}
-
-
-						}
-						
+						}		
 					}
-        	
-        	
-        	
         	}
         });
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
@@ -521,19 +479,15 @@ public class Interface extends javax.swing.JFrame {
             }
         }
         );
-        
-
  
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	
+         
+        	public void actionPerformed(java.awt.event.ActionEvent evt) {
                 if(jComboBox3.getSelectedItem().toString().equals("AND")) {
                 	regra3 = "AND";
                 }
-               
-                else regra3 = "OR";
-                
+                else regra3 = "OR";   
             }
         });
 
@@ -747,60 +701,48 @@ public class Interface extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
     }                                           
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
     }                                        
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
     }                                           
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
     }                                           
 
     private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
     }                                            
 
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
     }                                            
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
     }                                            
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
     }                                           
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
     }                                           
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
     }                                           
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
     }                                          
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
     }                                          
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
     }                                          
 
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -815,20 +757,20 @@ public class Interface extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interfacev2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interfacev2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interfacev2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interfacev2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Interface().setVisible(true);
+                new Interfacev2().setVisible(true);
             }
         });
     }
