@@ -35,7 +35,6 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.xmlbeans.impl.xb.xmlconfig.Extensionconfig.Interface;
 
 import codesmell.checks.CycloChecker;
 import codesmell.checks.CycloMethodChecker;
