@@ -1,5 +1,4 @@
 package codesmell;
-
 import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -52,10 +51,7 @@ import codesmell.writer.ConsoleWriter;
 import codesmell.writer.ExcelWriter;
 import codesmell.writer.IWriter;
 
-
-
-public class Interface extends javax.swing.JFrame{
-	
+public class Interfacev2 extends javax.swing.JFrame {
 	
 	/**
 	 * 
@@ -67,7 +63,7 @@ public class Interface extends javax.swing.JFrame{
     /**
      * Creates new form NewJFrame
      */
-    public Interface() {
+    public Interfacev2() {
         initComponents();
     }
 
@@ -817,7 +813,6 @@ public class Interface extends javax.swing.JFrame{
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration   
-	
 	
 	
 
