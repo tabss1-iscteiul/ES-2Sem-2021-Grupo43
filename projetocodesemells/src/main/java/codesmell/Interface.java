@@ -326,9 +326,6 @@ public class Interface extends javax.swing.JFrame {
         	}
         });
         
-        
-        
-
         jButton9.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){ 
 					try {	
@@ -466,6 +463,7 @@ public class Interface extends javax.swing.JFrame {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        	
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	
                 if(jComboBox2.getSelectedItem().toString().equals("AND")) {
@@ -813,7 +811,4 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration   
-	
-	
-
 }

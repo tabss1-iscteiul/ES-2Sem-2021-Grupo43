@@ -6,17 +6,18 @@ import com.github.javaparser.ast.CompilationUnit;
 import codesmell.report.ReportArrayEntry;
 import codesmell.report.ReportEntry;
 
-public class GodClassChecker implements IChecker {//code smells para classes 
+public class GodClassChecker implements IChecker { //code smells para classes 
 
 	private int maxCyclomacy = 50;
 	private int maxNumberMethod = 10;
 	private int maxNumberLinesCode = 500;
+	
 	private String regra1;
 	private String regra2;
 
-	private CycloChecker cycloChecker = new CycloChecker();
-	private MethodChecker methodChecker = new MethodChecker();
-	private LineChecker lineChecker = new LineChecker();
+	private CycloChecker cycloChecker = new CycloChecker(); // inicializa um contador de ciclos
+	private MethodChecker methodChecker = new MethodChecker(); // inicializa um contador de métodos
+	private LineChecker lineChecker = new LineChecker(); // inicializa 
 
 	private static final String CHECKER_NAME = "God_class";
 
