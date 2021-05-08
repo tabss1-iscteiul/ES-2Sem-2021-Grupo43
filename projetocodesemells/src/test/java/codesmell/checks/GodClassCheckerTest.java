@@ -18,7 +18,7 @@ import junit.framework.TestCase;
  *
  */
 public class GodClassCheckerTest extends TestCase {
-	private GodClassChecker godClassCheck = new GodClassChecker();
+//	private GodClassChecker godClassCheck = new GodClassChecker();
 	private GodClassChecker godClassChecker = new GodClassChecker(50,100);
 	private GodClassChecker godClassCheckandand = new GodClassChecker(50, 100, 24, "AND", "AND");
 	private GodClassChecker godClassCheckandor = new GodClassChecker(50, 100, 30, "AND", "OR");
@@ -36,9 +36,9 @@ public class GodClassCheckerTest extends TestCase {
 	/**
 	 * Test method for {@link codesmell.checks.GodClassChecker#GodClassChecker()}.
 	 */
-	public final void testGodClassChecker() {
-		assertNotNull(godClassCheck);
-	}
+//	public final void testGodClassChecker() {
+//		assertNotNull(godClassCheck);
+//	}
 
 	/**
 	 * Test method for {@link codesmell.checks.GodClassChecker#GodClassChecker(int, int)}.
@@ -62,7 +62,7 @@ public class GodClassCheckerTest extends TestCase {
 	 * @throws IOException 
 	 */
 	public final void testCheck() throws IOException {
-		ASTReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
+		ASTReader reader = new ASTReader("C:\\jamsl\\src");
 		Collection<File> javaFiles = reader.getAllJavaFiles();
 		for (File javaFile : javaFiles) {
 			CompilationUnit compilationUnit = StaticJavaParser.parse(javaFile);

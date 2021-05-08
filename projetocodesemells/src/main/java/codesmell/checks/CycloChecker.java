@@ -6,28 +6,19 @@ import codesmell.report.ReportEntry;
 
 public class CycloChecker implements IChecker { // complexidade ciclomática da classe
 
-	// utilizção da biblioteca javaparser
+	// utilizacao da biblioteca javaparser - calculo de ifs,else etc...
 	private static final String CHECKER_NAME = "WMC_class";
 
 	@Override
 	public ReportEntry check(CompilationUnit compilationUnit) {
-
-		// contador if's, else's...
 		int counter = compilationUnit.findAll(Statement.class).stream().mapToInt(statement -> {
-
-			// o statement é uma sub biblioteca
 			if (statement.isIfStmt() || statement.isWhileStmt() || statement.isForStmt() || statement.isForEachStmt()
 					|| statement.isDoStmt()) {
+				return 1;
 
-				return 1; // se encontra um ciclo incrementa
-			
-			// conta tudo o que não está em comentário
 			} else if (statement.isSwitchStmt()) {
-				
-				return statement.asSwitchStmt().getEntries().size(); // número de cases de switches
-			
+				return statement.asSwitchStmt().getEntries().size();// numero de cases de switches
 			}
-			
 			return 0;
 
 		}).sum();
@@ -36,9 +27,6 @@ public class CycloChecker implements IChecker { // complexidade ciclomática da 
 	}
 
 	public String getCheckerName() {
-		
 		return CHECKER_NAME;
-	
 	}
-
 }

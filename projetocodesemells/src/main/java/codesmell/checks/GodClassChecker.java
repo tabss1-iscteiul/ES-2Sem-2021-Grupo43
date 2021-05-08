@@ -20,10 +20,10 @@ public class GodClassChecker implements IChecker { // code smells para classes
 	private LineChecker lineChecker = new LineChecker(); // inicializa
 
 	private static final String CHECKER_NAME = "God_class";
+	//Os construtores vazios serão úteis para os testes unitários
+	//public GodClassChecker() {
 
-	/*public GodClassChecker() {
-
-	}*/
+//	}
 
 	public GodClassChecker(int maxCyclomacy, int maxNumberMethod) {
 
