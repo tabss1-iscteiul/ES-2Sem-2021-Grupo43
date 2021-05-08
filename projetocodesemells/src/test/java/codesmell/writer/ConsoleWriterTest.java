@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import codesmell.checks.IChecker;
-import codesmell.Interface;
 import codesmell.checks.CycloChecker;
 import codesmell.checks.CycloMethodChecker;
 import codesmell.checks.GodClassChecker;
