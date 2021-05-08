@@ -21,6 +21,10 @@ public class GodClassChecker implements IChecker { // code smells para classes
 
 	private static final String CHECKER_NAME = "God_class";
 
+	/*public GodClassChecker() {
+
+	}*/
+
 	public GodClassChecker(int maxCyclomacy, int maxNumberMethod) {
 
 		this.maxCyclomacy = maxCyclomacy;
