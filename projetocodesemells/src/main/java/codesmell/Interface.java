@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package codesmell;
 
 import java.awt.BorderLayout;
@@ -57,8 +52,11 @@ import codesmell.writer.ConsoleWriter;
 import codesmell.writer.ExcelWriter;
 import codesmell.writer.IWriter;
 
-public class Interface extends javax.swing.JFrame {
 
+
+public class Interface extends javax.swing.JFrame{
+	
+	
 	/**
 	 * 
 	 */
@@ -215,7 +213,7 @@ public class Interface extends javax.swing.JFrame {
         jButton2.setText("Path");
         jButton2.setName("PathDestinyButton"); // NOI18N
            
-        jButton3.setText("Carregar Regras");
+        jButton3.setText("Carregar Regras");// guardar regras 
         jButton3.setMaximumSize(new java.awt.Dimension(105, 23));
         jButton3.setMinimumSize(new java.awt.Dimension(105, 23));
         jButton3.setPreferredSize(new java.awt.Dimension(120, 23));
@@ -332,6 +330,8 @@ public class Interface extends javax.swing.JFrame {
         	}
         });
         
+        
+        
 
         jButton9.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){ 
@@ -349,7 +349,7 @@ public class Interface extends javax.swing.JFrame {
 						writer.write(report);
 						
 						//cwriter.write(report);
-						jTextField9.setText(Integer.toString(((ConsoleWriter)cwriter).counterPackages(report)-1));
+						jTextField9.setText(Integer.toString(((ConsoleWriter)cwriter).counterPackages(report)));
 						jTextField11.setText(Integer.toString(((ConsoleWriter)cwriter).counterClasses(report)));
 						jTextField13.setText(Integer.toString(((ConsoleWriter)cwriter).counterMethods(report)));
 						jTextField10.setText(Integer.toString(((ConsoleWriter)cwriter).counterLinesByMethod(report)));
@@ -816,5 +816,9 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField9;
-    // End of variables declaration                   
+    // End of variables declaration   
+	
+	
+	
+
 }
