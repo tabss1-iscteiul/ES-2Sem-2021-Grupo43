@@ -52,7 +52,7 @@ import codesmell.writer.ConsoleWriter;
 import codesmell.writer.ExcelWriter;
 import codesmell.writer.IWriter;
 
-public class Interfacev2 extends javax.swing.JFrame {
+public class Interface extends javax.swing.JFrame {
 	
 	/**
 	 * 
@@ -64,7 +64,7 @@ public class Interfacev2 extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public Interfacev2() {
+    public Interface() {
         initComponents();
     }
 
