@@ -10,13 +10,14 @@ public class CycloMethodChecker implements IChecker {//complexidade ciclomática
 
 	private static final String CHECKER_NAME = "CYCLO_method";
 
-
+	
 	public ReportMultipleEntry check(CompilationUnit compilationUnit) {
 
 		ReportMultipleEntry en = new ReportMultipleEntry(CHECKER_NAME);
 		compilationUnit.findAll(MethodDeclaration.class).forEach(method -> {
 
 			String methodName = method.getDeclarationAsString(false, false);
+			
 			int counter = method.findAll(Statement.class).stream().mapToInt(statement -> {
 
 				if (statement.isIfStmt() || statement.isWhileStmt() || statement.isForStmt()
@@ -37,4 +38,5 @@ public class CycloMethodChecker implements IChecker {//complexidade ciclomática
 	public String getCheckerName() {
 		return CHECKER_NAME;
 	}
+	
 }

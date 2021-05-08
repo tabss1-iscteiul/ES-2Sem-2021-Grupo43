@@ -349,7 +349,7 @@ public class Interface extends javax.swing.JFrame {
 						writer.write(report);
 						
 						//cwriter.write(report);
-						jTextField9.setText(Integer.toString(((ConsoleWriter)cwriter).counterPackages(report)));
+						jTextField9.setText(Integer.toString(((ConsoleWriter)cwriter).counterPackages(report)-1));
 						jTextField11.setText(Integer.toString(((ConsoleWriter)cwriter).counterClasses(report)));
 						jTextField13.setText(Integer.toString(((ConsoleWriter)cwriter).counterMethods(report)));
 						jTextField10.setText(Integer.toString(((ConsoleWriter)cwriter).counterLinesByMethod(report)));
