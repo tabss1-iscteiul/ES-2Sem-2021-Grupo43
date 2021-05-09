@@ -17,6 +17,7 @@ import junit.framework.TestCase;
  * @author TOSHIBA
  *
  */
+// Classe que realiza os testes unitários relativo ao cálculo de linhas de código da classe (locmethod)
 public class LineCheckerTest extends TestCase {
 
 	private LineChecker lineChecker = new LineChecker();
