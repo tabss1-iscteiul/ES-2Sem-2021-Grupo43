@@ -189,6 +189,7 @@ public class Interface extends javax.swing.JFrame {
         jButton2.setText("Path");
         jButton2.setName("PathDestinyButton"); // NOI18N
         
+        //Funcao botao para escolher caminho da pasta
         jButton1.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
@@ -202,6 +203,7 @@ public class Interface extends javax.swing.JFrame {
         	}
         });
         
+        //Funcao botao para escolher caminho do destino
         jButton2.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
@@ -249,6 +251,7 @@ public class Interface extends javax.swing.JFrame {
         
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
+      //verifica qual a regra selecionada na combo box 1
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	 if(jComboBox1.getSelectedItem().toString().equals("AND")) {
@@ -260,6 +263,8 @@ public class Interface extends javax.swing.JFrame {
         );
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
+      
+        //verifica qual a regra selecionada na combo box 2
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
         	
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,6 +310,8 @@ public class Interface extends javax.swing.JFrame {
         //Combo-Box
         
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
+       
+        //verifica qual a regra selecionada na combo box 3
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
          
         	public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -330,10 +337,12 @@ public class Interface extends javax.swing.JFrame {
         //---------------------------Botoes das Regras -----------------------------------//
         
         
-        jButton3.setText("Carregar Regras");// guardar regras 
+        jButton3.setText("Carregar Regras");
         jButton3.setMaximumSize(new java.awt.Dimension(105, 23));
         jButton3.setMinimumSize(new java.awt.Dimension(105, 23));
         jButton3.setPreferredSize(new java.awt.Dimension(120, 23));
+       
+        //permite carregar as regras que o utilizador guardou
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	codesmell.txt.ReaderTXT ler= new codesmell.txt.ReaderTXT();
@@ -372,6 +381,8 @@ public class Interface extends javax.swing.JFrame {
         jButton4.setMaximumSize(new java.awt.Dimension(109, 23));
         jButton4.setMinimumSize(new java.awt.Dimension(109, 23));
         jButton4.setPreferredSize(new java.awt.Dimension(120, 23));
+       
+      //permite guardar as regras que o utilizador pretende
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	codesmell.txt.WriterTXT escrever= new codesmell.txt.WriterTXT();
@@ -389,6 +400,8 @@ public class Interface extends javax.swing.JFrame {
         jButton5.setMaximumSize(new java.awt.Dimension(110, 23));
         jButton5.setMinimumSize(new java.awt.Dimension(110, 23));
         jButton5.setPreferredSize(new java.awt.Dimension(120, 23));
+        
+        //Limpa as regras 
         jButton5.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
@@ -408,6 +421,7 @@ public class Interface extends javax.swing.JFrame {
         
         //---------------------------Botao do Excel ------------------------------------//
         
+       //Cria o ficheiro excel de acordo com as regras que o utilizador deu
         jButton9.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){ 
 					try {	
