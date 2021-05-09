@@ -33,6 +33,8 @@ public class GodClassChecker implements IChecker { // code smells para classes
 
 	}
 
+	//Construtor que recebe as regras para definir se é god class ou nao
+
 	public GodClassChecker(int maxNumberMethod, int maxNumberLinesCode, int maxCyclomacy, String regra1, String regra2) {
 		this.maxCyclomacy = maxCyclomacy;
 		this.maxNumberMethod = maxNumberMethod;
@@ -41,6 +43,7 @@ public class GodClassChecker implements IChecker { // code smells para classes
 		this.regra2 = regra2;
 	}
 
+	//Metodo que verifica se é god class ou nao
 	public ReportArrayEntry check(CompilationUnit compilationUnit) {
 
 		ReportEntry cycloResult = cycloChecker.check(compilationUnit);

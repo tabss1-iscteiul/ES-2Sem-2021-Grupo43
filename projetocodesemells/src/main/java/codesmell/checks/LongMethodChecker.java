@@ -20,12 +20,15 @@ public class LongMethodChecker implements IChecker {//code smells para metodos
 	public LongMethodChecker() {
 	}
 
+	//Construtor que recebe as regras para definir se é long method ou nao
+	
 	public LongMethodChecker(int lineCodeMethod, int maxCiclomacyMethod, String regra3) {
 		this.lineCodeMethod = lineCodeMethod;
 		this.maxCiclomacyMethod = maxCiclomacyMethod;
 		this.regra3=regra3;
 	}
 
+	//Metodo que verifica se é long method ou nao
 	public ReportArrayEntry check(CompilationUnit compilationUnit) {
 
 		ReportMultipleEntry cycloResult = cycloMethod.check(compilationUnit);
