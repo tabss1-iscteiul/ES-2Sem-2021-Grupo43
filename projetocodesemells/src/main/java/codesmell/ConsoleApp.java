@@ -29,7 +29,7 @@ public class ConsoleApp {
 			new CycloChecker(), 
 			new CycloMethodChecker(),
 			new LineMethodChecker(), new GodClassChecker(50, 150, 70, "AND", "OR" ), new LongMethodChecker(40, 60, "AND"));
-		IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
+		IReader reader = new ASTReader("C:\\Users\\Fujitsu\\Desktop\\jasml\\src");
 		IWriter cwriter = new ConsoleWriter();
 		//IWriter writer = new ExcelWriter();
 
@@ -37,7 +37,11 @@ public class ConsoleApp {
 		//writer.write(report);
 		cwriter.write(report);
 		
+		
 		System.out.println("-----------------------------------------" + ((ConsoleWriter)cwriter).counterClasses(report));
+		System.out.println("-----------------------------------------" + ((ConsoleWriter)cwriter).counterLinesByMethod(report));
+		System.out.println("-----------------------------------------" + ((ConsoleWriter)cwriter).counterMethods(report));
+		System.out.println("-----------------------------------------" + ((ConsoleWriter)cwriter).counterPackages(report));
 		//((ConsoleWriter)cwriter).counterLinesByMethod(report);
 		//((ConsoleWriter)cwriter).counterMethods(report);
 		//((ConsoleWriter)cwriter).counterPackages(report);

@@ -23,7 +23,10 @@ import junit.framework.TestCase;
  */
 public class ASTReaderTest extends TestCase {
 
-	private ASTReader reader  = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
+	private GodClassChecker godClass = new GodClassChecker(50, 150, 70, "AND", "OR" );
+	
+	
+	private ASTReader reader  = new ASTReader("C:\\Users\\Fujitsu\\Desktop\\jasml\\src");
 	
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -44,14 +47,14 @@ public class ASTReaderTest extends TestCase {
 	 * Test method for {@link codesmell.reader.ASTReader#runCheckers(java.util.Collection)}.
 	 * @throws IOException 
 	 */
-//	public final void testRunCheckers() throws IOException {
-//		Collection<IChecker> checkers = Arrays.asList( 
-//				new LineChecker(), 
-//				new MethodChecker(), 
-//				new CycloChecker(), 
-//				new CycloMethodChecker(),
-//				new LineMethodChecker(), new GodClassChecker(), new LongMethodChecker());
-//		reader.runCheckers(checkers);
-//	}
+public final void testRunCheckers() throws IOException {
+Collection<IChecker> checkers = Arrays.asList( 
+		new LineChecker(), 
+		new MethodChecker(), 
+		new CycloChecker(), 
+		new CycloMethodChecker(),
+		new LineMethodChecker(), new GodClassChecker(50, 150, 70, "AND", "OR" ), new LongMethodChecker());
+		reader.runCheckers(checkers);
+}
 
 }

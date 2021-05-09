@@ -27,7 +27,7 @@ import junit.framework.TestCase;
  *
  */
 public class ExcelWriterTest extends TestCase {
-	private ExcelWriter excel = new ExcelWriter("C:\\Users\\TOSHIBA\\Documents\\teste");
+	private ExcelWriter excel = new ExcelWriter("C:\\Users\\Fujitsu\\Desktop\\teste");
 	
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -55,7 +55,7 @@ public class ExcelWriterTest extends TestCase {
 				new CycloChecker(), 
 				new CycloMethodChecker(),
 				new LineMethodChecker(), new GodClassChecker(50, 150, 70, "AND", "OR" ), new LongMethodChecker(40, 60, "AND"));
-			IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
+			IReader reader = new ASTReader("C:\\Users\\Fujitsu\\Desktop\\jasml\\src");
 			Report report = reader.runCheckers(checkers);
 			excel.write(report);
 	}

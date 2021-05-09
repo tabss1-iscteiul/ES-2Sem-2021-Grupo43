@@ -62,7 +62,7 @@ public class GodClassCheckerTest extends TestCase {
 	 * @throws IOException 
 	 */
 	public final void testCheck() throws IOException {
-		ASTReader reader = new ASTReader("C:\\jamsl\\src");
+		ASTReader reader = new ASTReader("C:\\Users\\Fujitsu\\Desktop\\jasml\\src");
 		Collection<File> javaFiles = reader.getAllJavaFiles();
 		for (File javaFile : javaFiles) {
 			CompilationUnit compilationUnit = StaticJavaParser.parse(javaFile);
