@@ -38,8 +38,8 @@ public class GodClassCheckerTest extends TestCase {
 	 */
 //	public final void testGodClassChecker() {
 //		assertNotNull(godClassCheck);
-//	}
-
+//	
+//
 	/**
 	 * Test method for {@link codesmell.checks.GodClassChecker#GodClassChecker(int, int)}.
 	 */
