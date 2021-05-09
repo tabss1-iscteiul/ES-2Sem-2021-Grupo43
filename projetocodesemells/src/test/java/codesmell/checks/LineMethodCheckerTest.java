@@ -17,6 +17,7 @@ import junit.framework.TestCase;
  * @author TOSHIBA
  *
  */
+// Classe que faz o teste unitário relativo à classe que conta as linhas de cada método
 public class LineMethodCheckerTest extends TestCase {
 	private LineMethodChecker lineMethodChecker = new LineMethodChecker();
 
