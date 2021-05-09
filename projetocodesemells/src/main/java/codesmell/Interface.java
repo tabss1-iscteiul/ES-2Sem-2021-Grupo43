@@ -131,6 +131,8 @@ public class Interface extends javax.swing.JFrame {
         jLabel17.setText("Is_Long_Method");
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
         
         //------------------------Caminho_da_Pasta-----------------------------------------//
         
@@ -141,66 +143,6 @@ public class Interface extends javax.swing.JFrame {
             }
         });
         
-        
-        
-        //-------------------------------God_Class-----------------------------------------//
-        
-        //NOM_CLASS
-        
-        
-        
-        //LOC_CLASS
-        
-        jLabel5.setText("LOC_CLASS");
-        
-        //WMC_CLASS
-        
-        
-        //-----------------------------Is_Long_Class--------------------------------------//
-        
-        //LOC_METHOD
-        
-        //CYCLO_METHOD
-        
-        
-        
-        //-------------------------Resumo das Características do Projeto ------------------//
-      
-        jLabel10.setText("Número total de packages");
-
-        jLabel11.setText("Número total de métodos");
-
-       
-        //---------------------------Botoes das Regras -----------------------------------//
-        
-        
-        
-        
-        //---------------------------Botoes das Regras ----------------------------------//
-        jTextField4.setPreferredSize(new java.awt.Dimension(30, 20));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-
-        
-        //---------------------------Botao do Excel ------------------------------------//
-        
-        
-        jLabel6.setText("LOC_METHOD");
-
-        jLabel12.setText("Número total de classes");
-
-        jTextField5.setPreferredSize(new java.awt.Dimension(30, 20));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-
-        jLabel13.setText("Número total de linhas do código");
-
         jTextField10.setName("caminhoPasta"); // NOI18N
         jTextField10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,7 +150,7 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("CYCLO_METHOD");
+        
 
         jTextField11.setName("caminhoPasta"); // NOI18N
         jTextField11.addActionListener(new java.awt.event.ActionListener() {
@@ -224,22 +166,6 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setText("WMC_CLASS");
-
-        jTextField6.setPreferredSize(new java.awt.Dimension(30, 20));
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-
-        jTextField7.setPreferredSize(new java.awt.Dimension(30, 20));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Pasta");
 
         jLabel2.setText("Destino");
@@ -252,11 +178,87 @@ public class Interface extends javax.swing.JFrame {
 
         jButton1.setText("Path"); 
         jButton1.setName("PathFolderButton"); // NOI18N
-
-        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
+        
         jButton2.setText("Path");
         jButton2.setName("PathDestinyButton"); // NOI18N
+        
+        
+        //-------------------------------God_Class-----------------------------------------//
+        
+        //NOM_CLASS
+        
+        
+        
+        
+        //LOC_CLASS
+        
+        jLabel5.setText("LOC_CLASS");
+        
+        //WMC_CLASS
+        
+        jLabel8.setText("WMC_CLASS");
+        
+        jTextField5.setPreferredSize(new java.awt.Dimension(30, 20));
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+
+        
+        
+        //-----------------------------Is_Long_Class--------------------------------------//
+        
+        //LOC_METHOD
+        jLabel6.setText("LOC_METHOD");
+        jTextField6.setPreferredSize(new java.awt.Dimension(30, 20));
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+
+        jTextField4.setPreferredSize(new java.awt.Dimension(30, 20));
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+
+        
+        //CYCLO_METHOD
+        
+        jLabel7.setText("CYCLO_METHOD");
+        
+        jTextField7.setPreferredSize(new java.awt.Dimension(30, 20));
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        
+        //-------------------------Resumo das Características do Projeto ------------------//
+      
+        jLabel10.setText("Número total de packages");
+
+        jLabel11.setText("Número total de métodos");
+        
+        jLabel12.setText("Número total de classes");
+        
+        jLabel13.setText("Número total de linhas do código");
+       
+        //---------------------------Botoes das Regras -----------------------------------//
+        
+        
+        
+        
+        //---------------------------Botoes das Regras ----------------------------------//
+       
+        
+        //---------------------------Botao do Excel ------------------------------------//
+        
+
+
            
         jButton3.setText("Carregar Regras");// guardar regras 
         jButton3.setMaximumSize(new java.awt.Dimension(105, 23));
