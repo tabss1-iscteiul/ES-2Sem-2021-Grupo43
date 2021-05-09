@@ -122,6 +122,8 @@ public class Interface extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         
         
+        //----------------------------------Editor de Regras --------------------------------//
+        
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setText("God_Class");
 
@@ -129,16 +131,52 @@ public class Interface extends javax.swing.JFrame {
         jLabel17.setText("Is_Long_Method");
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        
+        //------------------------Caminho_da_Pasta-----------------------------------------//
+        
         jTextField9.setName("caminhoPasta"); // NOI18N
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField9ActionPerformed(evt);
             }
         });
-
+        
+        
+        
+        //-------------------------------God_Class-----------------------------------------//
+        
+        //NOM_CLASS
+        
+        
+        
+        //LOC_CLASS
+        
         jLabel5.setText("LOC_CLASS");
+        
+        //WMC_CLASS
+        
+        
+        //-----------------------------Is_Long_Class--------------------------------------//
+        
+        //LOC_METHOD
+        
+        //CYCLO_METHOD
+        
+        
+        
+        //-------------------------Resumo das Características do Projeto ------------------//
+      
+        jLabel10.setText("Número total de packages");
 
+        jLabel11.setText("Número total de métodos");
+
+       
+        //---------------------------Botoes das Regras -----------------------------------//
+        
+        
+        
+        
+        //---------------------------Botoes das Regras ----------------------------------//
         jTextField4.setPreferredSize(new java.awt.Dimension(30, 20));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,10 +184,10 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setText("Número total de packages");
-
-        jLabel11.setText("Número total de métodos");
-
+        
+        //---------------------------Botao do Excel ------------------------------------//
+        
+        
         jLabel6.setText("LOC_METHOD");
 
         jLabel12.setText("Número total de classes");
