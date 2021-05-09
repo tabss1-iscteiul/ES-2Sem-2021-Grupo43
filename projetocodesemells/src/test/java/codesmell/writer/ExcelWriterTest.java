@@ -26,6 +26,7 @@ import junit.framework.TestCase;
  * @author TOSHIBA
  *
  */
+// Testes unitários relativo à criação do Excel
 public class ExcelWriterTest extends TestCase {
 	private ExcelWriter excel = new ExcelWriter("C:\\Users\\Fujitsu\\Desktop\\teste");
 	
