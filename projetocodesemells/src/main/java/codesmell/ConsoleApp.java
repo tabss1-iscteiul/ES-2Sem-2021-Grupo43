@@ -21,7 +21,7 @@ import codesmell.writer.ExcelWriter;
 import codesmell.writer.IWriter;
 public class ConsoleApp {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String args[]) throws IOException {
 		// Setup components
 		Collection<IChecker> checkers = Arrays.asList( 
 			new LineChecker(), 
