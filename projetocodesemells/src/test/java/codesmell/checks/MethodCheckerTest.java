@@ -17,6 +17,7 @@ import junit.framework.TestCase;
  * @author TOSHIBA
  *
  */
+// Classe que faz os testes unitários relativos à classe que conta os métodos
 public class MethodCheckerTest extends TestCase {
 
 	private MethodChecker methodChecker = new MethodChecker();
