@@ -19,6 +19,8 @@ public class ReaderTXT {
 	public ReaderTXT() {
 		
 	}
+	
+	//Metodo que le o ficheiro txt com as regras guardadas pelo utilizador
 	public void readFile(String path) {
 		try {
 		      File file = new File(path);

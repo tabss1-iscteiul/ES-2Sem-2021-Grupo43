@@ -8,6 +8,7 @@ import java.io.IOException;  // Import the IOException class to handle errors
 
 public class WriterTXT {
 
+	//Metodo que escreve num ficheiro txt as regras que o utilizador pretende guardar
 	public void write (int nomC, String regra1, int locC, String regra2, int wmcC, int locM, String regra3, int cycloM, String destino) {
 		 try {
 		     FileWriter writeTXT= new FileWriter(destino);
