@@ -87,6 +87,7 @@ public class ConsoleWriterTest extends TestCase {
 	 */
 	
 	public final void testCounterPackages() throws IOException{
+
 		
 	Collection<IChecker> checkers = Arrays.asList(new LineChecker(), new MethodChecker(), new CycloChecker(),
 			new CycloMethodChecker(), new LineMethodChecker(), new GodClassChecker(50, 150, 70, "AND", "OR" ), new LongMethodChecker());
@@ -96,18 +97,24 @@ public class ConsoleWriterTest extends TestCase {
 	assertEquals(5, packages);
 }
 
+		
+
+
 	/**
 	 * Test method for
 	 * {@link codesmell.writer.ConsoleWriter#counterMethods(codesmell.report.Report)}.
 	 * @throws IOException 
 	 */
-		public final void testCounterMethods() throws IOException {
-			Collection<IChecker> checkers = Arrays.asList(new LineChecker(), new MethodChecker(), new CycloChecker(),
-					new CycloMethodChecker(), new LineMethodChecker(), new GodClassChecker(50, 150, 70, "AND", "OR" ), new LongMethodChecker());
-			IReader reader = new ASTReader("C:\\Users\\Fujitsu\\Desktop\\jasml\\src");
-			Report report = reader.runCheckers(checkers);
-			int methods = consoleWriter.counterMethods(report);
-			assertEquals(195, methods);
-		}
+
+	
+	public final void testCounterMethods() throws IOException {
+		Collection<IChecker> checkers = Arrays.asList(new LineChecker(), new MethodChecker(), new CycloChecker(),
+				new CycloMethodChecker(), new LineMethodChecker(), new GodClassChecker(50, 150, 70, "AND", "OR" ), new LongMethodChecker());
+		IReader reader = new ASTReader("C:\\Users\\TOSHIBA\\Desktop\\jamsl\\src");
+		Report report = reader.runCheckers(checkers);
+		int methods = consoleWriter.counterMethods(report);
+		assertEquals(197, methods);
+	}
+
 
 }

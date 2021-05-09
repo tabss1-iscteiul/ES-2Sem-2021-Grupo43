@@ -47,6 +47,7 @@ public class ASTReaderTest extends TestCase {
 	 * Test method for {@link codesmell.reader.ASTReader#runCheckers(java.util.Collection)}.
 	 * @throws IOException 
 	 */
+
 public final void testRunCheckers() throws IOException {
 Collection<IChecker> checkers = Arrays.asList( 
 		new LineChecker(), 
@@ -57,4 +58,5 @@ Collection<IChecker> checkers = Arrays.asList(
 		reader.runCheckers(checkers);
 }
 
+	
 }
