@@ -132,6 +132,13 @@ public class Interface extends javax.swing.JFrame {
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Editor de Regras");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Resumo das Características do Projeto");
+
 
         
         //------------------------Caminho_da_Pasta-----------------------------------------//
@@ -182,13 +189,46 @@ public class Interface extends javax.swing.JFrame {
         jButton2.setText("Path");
         jButton2.setName("PathDestinyButton"); // NOI18N
         
+        jButton1.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		JFileChooser jfc = new JFileChooser(".");
+				 jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				 int returnValue = jfc.showOpenDialog(null);
+				 if (returnValue == JFileChooser.APPROVE_OPTION) {
+				 File selectedFile = jfc.getSelectedFile();
+				 jTextField2.setText(selectedFile.getAbsolutePath());
+				 }
+        	}
+        });
+        
+        jButton2.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		JFileChooser jfc2 = new JFileChooser(".");
+				 jfc2.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				 int returnValue = jfc2.showOpenDialog(null);
+				 if (returnValue == JFileChooser.APPROVE_OPTION) {
+				 File selectedFile = jfc2.getSelectedFile();
+				 jTextField1.setText(selectedFile.getAbsolutePath());
+				 }
+        	}
+        });
+        
+        
         
         //-------------------------------God_Class-----------------------------------------//
         
         //NOM_CLASS
         
+        jLabel4.setText("NOM_CLASS");
         
-        
+        jTextField3.setPreferredSize(new java.awt.Dimension(30, 20));
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
         
         //LOC_CLASS
         
@@ -205,7 +245,32 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        //combo-box
         
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	 if(jComboBox1.getSelectedItem().toString().equals("AND")) {
+                  	regra1 = "AND";
+                  }
+                  else regra1 = "OR";       
+             	 }
+            }
+        );
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        	
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	
+                if(jComboBox2.getSelectedItem().toString().equals("AND")) {
+                	regra2 = "AND";
+                }
+                else regra2 = "OR";
+            }
+        }
+        );
         
         //-----------------------------Is_Long_Class--------------------------------------//
         
@@ -237,6 +302,21 @@ public class Interface extends javax.swing.JFrame {
             }
         });
         
+        //Combo-Box
+        
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+         
+        	public void actionPerformed(java.awt.event.ActionEvent evt) {
+                if(jComboBox3.getSelectedItem().toString().equals("AND")) {
+                	regra3 = "AND";
+                }
+                else regra3 = "OR";   
+            }
+        });
+        
+        
+        
         //-------------------------Resumo das Características do Projeto ------------------//
       
         jLabel10.setText("Número total de packages");
@@ -250,16 +330,6 @@ public class Interface extends javax.swing.JFrame {
         //---------------------------Botoes das Regras -----------------------------------//
         
         
-        
-        
-        //---------------------------Botoes das Regras ----------------------------------//
-       
-        
-        //---------------------------Botao do Excel ------------------------------------//
-        
-
-
-           
         jButton3.setText("Carregar Regras");// guardar regras 
         jButton3.setMaximumSize(new java.awt.Dimension(105, 23));
         jButton3.setMinimumSize(new java.awt.Dimension(105, 23));
@@ -298,9 +368,6 @@ public class Interface extends javax.swing.JFrame {
             }
         });
    
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Editor de Regras");
-
         jButton4.setText("Guardar Regras");
         jButton4.setMaximumSize(new java.awt.Dimension(109, 23));
         jButton4.setMinimumSize(new java.awt.Dimension(109, 23));
@@ -317,18 +384,7 @@ public class Interface extends javax.swing.JFrame {
             }
             
         });
-        jLabel4.setText("NOM_CLASS");
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Resumo das Características do Projeto");
-
-        jTextField3.setPreferredSize(new java.awt.Dimension(30, 20));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-
+        
         jButton5.setText("Limpar Regras");
         jButton5.setMaximumSize(new java.awt.Dimension(110, 23));
         jButton5.setMinimumSize(new java.awt.Dimension(110, 23));
@@ -347,35 +403,10 @@ public class Interface extends javax.swing.JFrame {
         	}
         });
         
-        jButton9.setBackground(new java.awt.Color(255, 255, 255));
-        jButton9.setForeground(new java.awt.Color(0, 51, 51));
-        jButton9.setText("Ficheiro Excel");
-
-        jButton1.addActionListener(new ActionListener() {
-        	@Override
-        	public void actionPerformed(ActionEvent e) {
-        		JFileChooser jfc = new JFileChooser(".");
-				 jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				 int returnValue = jfc.showOpenDialog(null);
-				 if (returnValue == JFileChooser.APPROVE_OPTION) {
-				 File selectedFile = jfc.getSelectedFile();
-				 jTextField2.setText(selectedFile.getAbsolutePath());
-				 }
-        	}
-        });
+        //---------------------------Botoes das Regras ----------------------------------//
+       
         
-        jButton2.addActionListener(new ActionListener() {
-        	@Override
-        	public void actionPerformed(ActionEvent e) {
-        		JFileChooser jfc2 = new JFileChooser(".");
-				 jfc2.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				 int returnValue = jfc2.showOpenDialog(null);
-				 if (returnValue == JFileChooser.APPROVE_OPTION) {
-				 File selectedFile = jfc2.getSelectedFile();
-				 jTextField1.setText(selectedFile.getAbsolutePath());
-				 }
-        	}
-        });
+        //---------------------------Botao do Excel ------------------------------------//
         
         jButton9.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){ 
@@ -501,40 +532,15 @@ public class Interface extends javax.swing.JFrame {
 					}
         	}
         });
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	 if(jComboBox1.getSelectedItem().toString().equals("AND")) {
-                  	regra1 = "AND";
-                  }
-                  else regra1 = "OR";       
-             	 }
-            }
-        );
+        
+        jButton9.setBackground(new java.awt.Color(255, 255, 255));
+        jButton9.setForeground(new java.awt.Color(0, 51, 51));
+        jButton9.setText("Ficheiro Excel");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
-        	
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	
-                if(jComboBox2.getSelectedItem().toString().equals("AND")) {
-                	regra2 = "AND";
-                }
-                else regra2 = "OR";
-            }
-        }
-        );
- 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " ,"AND", "OR" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
-         
-        	public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if(jComboBox3.getSelectedItem().toString().equals("AND")) {
-                	regra3 = "AND";
-                }
-                else regra3 = "OR";   
-            }
-        });
+        
+        //--------------------------------------------------------------------------------//
+
+        //--------------------------------Layout----------------------------------------
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
