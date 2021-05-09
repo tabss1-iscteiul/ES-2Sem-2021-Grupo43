@@ -18,6 +18,8 @@ import junit.framework.TestCase;
  * @author TOSHIBA
  *
  */
+// Classe que realiza os testes unitários relativos à complexidade ciclomática (calculo de ifs, while, for)
+
 public class CycloCheckerTest extends TestCase {
 	
 	private CycloChecker cyclomatic = new CycloChecker();
