@@ -106,6 +106,7 @@ public class GodClassChecker implements IChecker { // code smells para classes
 		result.addReportEntry(cycloResult);
 		result.addReportEntry(methodResult);
 		result.addReportEntry(godClassResult);
+		result.addReportEntry(lineResult);
 		return result;
 	}
 
